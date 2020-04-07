@@ -1,0 +1,28 @@
+<!--pages/user/company-info.wxml-->
+<form bindsubmit="edit" class="confirm">
+	<view class="list_box ">
+		<view class="list margin_l_34 padding_r_34">
+			<view class="title">公司地址</view>
+			<!-- <view class="cont">{{detail.address}}</view> -->
+			<input name="address" value="{{detail.address}}" />
+		</view>
+		<view class="list margin_l_34 padding_r_34">
+			<view class="title">联系人</view>
+			<input name="contact" value="{{detail.contact}}" />
+		</view>
+		<view class="list margin_l_34 padding_r_34">
+			<view class="title">手机号码</view>
+			<input name="mobile" value="{{detail.mobile}}" type="number" maxlength="11"/>
+		</view>
+		<view class="list margin_l_34 padding_r_34">
+			<view class="title">公司紧急联系人</view>
+			<input name="contact02" value="{{detail.contact02}}" />
+		</view>
+		<view class="list margin_l_34 padding_r_34">
+			<view class="title">公司紧急联系人手机号码</view>
+			<input name="mobile02" value="{{detail.mobile02}}" type="number" maxlength="11" />
+		</view>
+	</view>
+	<view class="margin_l_34 remind">{{dataPrompt}}</view>
+	<button form-type="submit" class="bg3">确认修改</button>
+</form>

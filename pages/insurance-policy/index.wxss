@@ -1,0 +1,67 @@
+/* pages/insurance-policy/index.wxss */
+page{
+	background: #fff;
+}
+.list_bg{
+	background: #EEFAF6;
+}
+
+.list_bottom_bg{
+	background: #12C286;
+}
+
+
+.list_failure_bg{
+	background: #FFF2F5;
+}
+
+.list_bottom_failure_bg{
+	background: #F7ADA8;
+}
+
+.failure_image{
+	width: 88rpx;
+	height: 88rpx;
+	position: absolute;
+	right: 18rpx;
+	top: 20rpx;
+}
+
+.list{
+	height: 230rpx;
+	margin-left: 34rpx;
+	margin-right: 34rpx;
+	border-radius: 6rpx;
+	position: relative;
+	margin-top: 50rpx;
+    box-shadow: 0rpx 5rpx 16rpx #D0CFD1;
+
+}
+
+.list_top{
+	margin-left: 24rpx;
+	padding-top: 14rpx;
+	line-height: 60rpx;
+}
+
+.list_top .title{
+	color: #363636;
+	font-weight: 600;
+}
+
+.list_top .list_info{
+	color: #666666;
+	display: flex;
+}
+
+.list_bottom{
+	width: 100%;
+	height: 74rpx;
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	line-height: 74rpx;
+	font-size: 24rpx;
+	font-weight: 400;
+	color: #fff;
+}

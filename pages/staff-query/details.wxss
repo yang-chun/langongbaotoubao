@@ -1,0 +1,98 @@
+/* pages/staff-query/details.wxss */
+.list_box{
+	background: #FFF;
+	margin-top: 34rpx;
+}
+
+.list_box .none{
+	text-align: center;
+	padding-top: 109rpx;
+	color: #999999;
+}
+
+.list{
+	width: 100%;
+	margin-bottom: 32rpx;
+	display:inline-block;
+}
+
+.company_box{
+	display: flex;
+	align-items: center;
+}
+
+.list .decoration{
+	width: 8rpx;
+	height: 24rpx;
+	background: #000;
+    background:linear-gradient(315deg,rgba(0,223,179,1) 0%,rgba(0,197,219,1) 100%);
+    margin-right: 18rpx;
+}
+
+.list .company {
+	font-size: 28rpx;
+	color: #666;
+}
+
+.list .send{
+	font-size: 20rpx;
+	margin-left: 18rpx;
+	color: #999999;
+	line-height: 30rpx;
+	margin-top: 10rpx;
+}
+
+.name_info_box{
+	/* margin-top: 42rpx; */
+}
+
+.name_info{
+	display: flex;
+	align-items: center;
+	margin-left: 26rpx;
+	margin-top: 32rpx;
+	padding-bottom: 32rpx;
+	border-bottom: 1rpx solid #F3F5F7;
+}
+
+.name_info .name{
+	width: 20%;
+}
+
+.name_info .id_card{
+	width: 60%;
+	margin-left: 20rpx;
+}
+
+.delete_box{
+	padding: 20rpx;
+}
+
+.name_info .label{
+	border-radius: 6rpx;
+	font-size: 20rpx;
+	padding: 12rpx 18rpx;
+	position: absolute;
+	right: 60rpx;
+}
+
+.notIn_label{
+	border: 1rpx solid #EA4335;
+	color: #EA4335;
+}
+
+
+.in_label{
+	border: 1rpx solid #12C286;
+	color: #12C286;
+}
+
+.date_box{
+	margin-left: 26rpx;
+	margin-right: 26rpx;
+	padding-top: 20rpx;
+	padding-bottom: 20rpx;
+	border-bottom: 1px solid #F3F5F7;
+	line-height: 50rpx;
+}
+

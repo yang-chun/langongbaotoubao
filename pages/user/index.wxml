@@ -1,0 +1,17 @@
+<!--pages/user/index.wxml-->
+<view class="top_box">
+	<view class="user_info">
+		<image class="margin_l_34" src="{{my.avatar}}"></image>
+		<view class="name">{{my.nick_name}}</view>
+	</view>
+</view>
+
+<view class="list_box">
+	<navigator url="/pages/user/company-info" class="list padding_34" hover-class="none">
+		<view class="company_info">公司信息</view>
+		<view class="company_name">{{my.company_name}}</view>
+		<image class="youjiantou" src="/images/icon-youjiantou.png"></image>
+	</navigator>
+</view>
+
+

@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/binding",
+    "pages/login/login",
+    "pages/user/index",
+    "pages/user/company-info",
+    "pages/insurance-policy/index",
+    "pages/insurance-policy/details",
+    "pages/record/index",
+    "pages/record/details",
+    "pages/record/personnel",
+    "pages/add-insurance/index",
+    "pages/add-insurance/add",
+    "pages/reduce-insurance/index",
+    "pages/reduce-insurance/reduce",
+    "pages/renewal/index",
+    "pages/staff-query/index",
+    "pages/staff-query/details",
+    "pages/evaluation/index"
+],
+"window": {
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "自定义底部导航栏",
+  "navigationBarTextStyle": "black"
+},
+"tabBar": {
+  "color": "#1C1C1C",
+  "selectedColor": "#03AD8F",
+  "backgroundColor": "#fff",
+  "list": [
+    {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index_n.png",
+        "selectedIconPath": "images/index_s.png"
+    },
+    {
+      "pagePath": "pages/user/index",
+      "text": "我的",
+      "iconPath": "images/user_n.png",
+      "selectedIconPath": "images/user_s.png"
+    }
+  ]
+},
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+
+}

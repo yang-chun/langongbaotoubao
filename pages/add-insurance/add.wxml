@@ -1,0 +1,64 @@
+<!--pages/add-insurance/index.wxml-->
+<van-popup
+show="{{ show.top }}"
+position="top"
+custom-style=""
+bind:close="hideTop"
+>
+	<view class="showTop_box" catchtap="company_hide">
+		<form bindsubmit="addlist">
+			<input name="name" placeholder="{{words.C17}}" value="{{name}}" />
+			<input name="idcard" placeholder="{{words.C18}}" value="{{idcard}}" type="idcard" maxlength="18" />
+			<view catchtap="company_show">
+				<input name="work_company" placeholder="被派遣单位全称" value="{{work_company}}" bindinput="company_input" />
+		        <scroll-view wx:if="{{isfocus}}" class="scroll" scroll-y="true" scroll-x="false">
+					<view class="my_company" wx:for="{{getCompany}}" wx:key="index" catchtap="choose_company" data-work_company="{{item}}">
+						<view>{{item}}</view>
+						<view class="cha" catchtap="delete_company" data-index="{{index}}">×</view>
+					</view>
+		        </scroll-view>
+			</view>
+
+			<view  class="margin_l_34 remind">{{remind}}</view>
+			<button class="bg3" form-type="submit" >添加</button>
+		</form>
+	</view>
+</van-popup>
+
+<!-- {{ show.top }} -->
+<view class="top_box">
+	<view class="title">{{words.A3}}</view>
+	<view class="Introduction">{{words.A3_1}}</view>
+	<view class="add_box" bindtap="showTop" >＋</view>
+</view>
+<view class="cont_box">
+	<view class="title_box margin34">
+		<view class="title">{{words.C2}}</view>
+		<view class="Introduction">{{date}} 生效 方案{{type}}</view>
+	</view>
+	<view class="list_box margin34">
+		<view wx:if="{{list.length == 0}}" class="none">暂无人员</view>
+		<view wx:else>
+			<view class="list" wx:for="{{list}}" wx:key="index">
+				<view class="company_box" >
+					<view class="decoration"></view>
+					<view class="company">{{item.work_company}}</view>
+					<view class="send">被派遣单位</view>
+				</view>
+				<view class="name_info_box" wx:for="{{item.persons}}" wx:for-item="infoitem" wx:key="index" wx:for-index="idx">
+					<view class="name_info">
+						<view class="name">{{infoitem.name}}</view>
+						<view class="idcard">{{infoitem.idcard}}</view>
+						<view class="delete_box">
+							<view class="delete" bindtap="delete" data-idx="{{idx}}" data-index="{{index}}">－</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="add_insurance">
+	<button hover-class="none" class="{{can_submit?'bg2':'bg1'}}" bindtap="form_list">{{words.D1}}（{{sum}}）</button>
+</view>

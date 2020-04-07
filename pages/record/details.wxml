@@ -1,0 +1,27 @@
+<!--pages/user/index.wxml-->
+<view class="top_box padding_34">
+	<view class="top_one color4 weight500">
+		<view>方案类型：{{list.policy_type}}</view>
+		<view>操作类型：
+			<text wx:if="{{list.type == '加保'}}" class="{{list.type=='减保'?'color1':'color2'}}">{{words.A3}}</text>
+			<text wx:elif="{{list.type == '减保'}}" class="{{list.type=='减保'?'color1':'color2'}}">{{words.A4}}</text>
+			<text wx:elif="{{list.type == '期初投保'}}" class="{{list.type=='减保'?'color1':'color2'}}">{{list.type}}</text>
+		</view>
+	</view>
+	<view class="top_one color5 weight400">
+		<view>操作人数：{{list.count}}</view>
+		<view>{{words.C11}}：<text  class="{{list.type=='减保'?'color1':'color2'}}">{{list.premium}}</text></view>
+	</view>
+	<view class="top_two color5 weight400">
+		<view>生效日期：{{list.start_date}}</view>
+		<view>操作时间：{{list.create_time}}</view>
+	</view>
+</view>
+
+<view class="list_box">
+	<view class="list padding_34" bindtap="personnel" data-policy_change_id="{{list.policy_change_id}}" data-work_company="{{item.work_company}}" wx:for="{{list.work_company}}" wx:key="index">
+		<view class="company">{{item.work_company}}</view>
+		<view class="number">{{item.count}}</view>
+		<image class="youjiantou" src="/images/icon-youjiantou.png"></image>
+	</view>
+</view>

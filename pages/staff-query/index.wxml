@@ -1,0 +1,39 @@
+
+<view class="top_box">
+	<view class="title">{{words.A6}}</view>
+	<view class="Introduction">{{words.A6_1}}</view>
+	<!-- <view class="add_box" bindtap="showTop" >＋</view> -->
+	<form bindsubmit="formsummit">
+		<view class="add_box">
+			<input name="keyword" value=""  placeholder="输入身份证号或者姓名查询"/>
+			<button form-type="submit" class="iconfont icon-sousuo search"></button>
+		</view>
+	</form>
+
+</view>
+<view class="cont_box">
+	<view class="list_box margin34">
+		<view class="list">
+			<view class="name_info_box" wx:for="{{list}}" wx:key="index"  bindtap="details" data-employee_id="{{item.employee_id}}">
+				<view class="name_info">
+					<view class="name">{{item.name}}</view>
+					<view class="id_card">{{item.idcard}}</view>
+						<view class="label {{item.is_active==0?'notIn_label':'in_label'}}">{{item.is_active==0?words.E2:words.E1}}</view>
+				</view>
+			</view>
+		</view>
+		<view style="color:#bbb;padding-bottom:40rpx;padding-top:40rpx;font-size:28rpx;text-align:center;">
+			<view wx:if="{{isLoading}}">
+				加载中...
+			</view>
+			<view wx:elif="{{list.length == 0}}">
+			  暂无内容
+			</view>
+			<view wx:else>
+			  <text wx:if="{{len == total}}">没有更多了</text>
+			  <text wx:elif="{{isLoading}}">加载中...</text>
+				<view style="height:90rpx" wx:else></view>
+			</view>
+		</view>
+	</view>
+</view>

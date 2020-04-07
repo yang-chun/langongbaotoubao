@@ -1,0 +1,22 @@
+<form bindsubmit="confirm" class="confirm margin34">
+	<view class="section">
+		<picker bindchange="bindplan" name="plan" value="{{planValue}}" range="{{plan}}">
+			<view wx:if="{{planValue}}" class="picker color4">{{planValue}}</view>
+			<view wx:else class="picker">
+                <view>{{words.C1}}</view>
+				<view class="iconfont icon-xiajiantou"></view>
+            </view>
+		</picker>
+		<picker wx:if="{{date_from}}" mode="date" name="date" value="{{date}}"  start="{{date_from}}" end="{{date_to}}" bindchange="bindDate" >
+		    <view wx:if="{{date}}" class="picker color4">{{date}}</view>
+		    <view wx:else class="picker">
+                <view>请选择生效时间</view>
+				<view class="iconfont icon-xiajiantou"></view>
+		    </view>
+	  	</picker>
+		<view class="remind margin34">{{remind}}</view>
+	</view>
+
+	<button form-type="submit"  class="bg3">确认</button>
+</form>
+

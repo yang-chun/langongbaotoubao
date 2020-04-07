@@ -1,0 +1,52 @@
+/* pages/user/index.wxss */
+.top_box {
+	height:300rpx;
+	background:rgba(255,255,255,1);
+}
+
+.top_one{
+	display: flex;
+	padding-top: 30rpx;
+	font-size: 32rpx;
+}
+
+.top_one view{
+	width: 50%;
+}
+
+.top_two{
+	margin-top: 30rpx;
+	line-height: 50rpx;
+	font-size: 28rpx;
+	padding-bottom: 32rpx;
+}
+
+.list_box{
+	margin-top: 18rpx;
+}
+
+.list{
+	height: 108rpx;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	color: #363636;
+	font-size: 28rpx;
+	margin-bottom: 1rpx;
+}
+
+.list .number{
+	width: 20%;
+	color: #999999;
+	margin-left: 40rpx;
+	text-align: right;
+}
+
+.list .youjiantou{
+	width: 60rpx;
+	height: 60rpx;
+}
+
+.company{
+	width: 80%;
+}

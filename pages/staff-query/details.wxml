@@ -1,0 +1,36 @@
+<!--pages/staff-query/details.wxml-->
+<view class="list_box margin34">
+	<view class="list" >
+
+		<view class="name_info_box">
+			<view class="name_info">
+				<view class="name">{{info.name}}</view>
+				<view class="id_card">{{info.idcard}}</view>
+				<view class="label {{info.is_active==1?'in_label':'notIn_label'}}">{{info.is_active==1?words.E1:words.E2}}</view>
+			</view>
+		</view>
+	</view>	
+	<view class="list" >
+		<view class="company_box" >
+			<view class="decoration"></view>
+			<view class="company">{{words.C15}}</view>
+		</view>
+		<view class="date_box" wx:for="{{info.records}}" wx:key="index">
+			<view class="company_box" >
+				<view class="company">{{item.work_company}}</view>
+				<view class="send">被派遣单位</view>
+			</view>
+			<view>{{item.start_date}}</view>
+			<view>{{item.end_date}}</view>
+		</view>
+<!-- 		<view class="date_box" style="color: #363636">
+			<view class="company_box" >
+				<view class="company">单位名称</view>
+				<view class="send">被派遣单位</view>
+			</view>
+
+			<view>2020-03-18 00:00:00</view>
+			<view>2020-04-18 23:59:59</view>
+		</view> -->
+	</view>
+</view>

@@ -1,0 +1,42 @@
+page{
+	background: #fff;
+}
+
+.confirm button{
+	width: 100%;
+	height: 96rpx;
+	color: #fff;
+	border-radius: 0;
+	margin-top: 24rpx;
+}
+.confirm button::after{
+  border: none;
+}
+
+.picker{
+	padding-top: 39rpx;
+	padding-bottom: 39rpx;
+	border-bottom: 1px solid #F3F5F7;
+	margin-left: 34rpx;
+	font-weight:500;
+}
+
+.picker{
+	padding-top: 39rpx;
+	padding-bottom: 39rpx;
+	border-bottom: 1px solid #F3F5F7;
+	margin-left: 34rpx;
+	font-weight:500;
+	display: flex;
+}
+.icon-xiajiantou{
+	position: absolute;
+	right: 34rpx;
+}
+
+.remind{
+ 	color: #EA4335;
+	font-size: 28rpx;
+	margin-top: 24rpx;
+	margin-bottom:24rpx ;
+}

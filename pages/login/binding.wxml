@@ -1,0 +1,16 @@
+<!--pages/login/index.wxml-->
+<view class="logo_box">
+	<view class="logo">
+		<image src="/images/logo.png"></image>
+	</view>
+	<view>欢迎使用自助投保系统</view>
+</view>
+
+<view class="input_box">
+	<form bindsubmit="binding">
+		<input name="user_name" placeholder="输入用户名" value="{{user_name}}" />
+		<input type="password" name="password" placeholder="请输入密码" value="{{password}}"/>
+		<view  class="margin_l_34 remind">{{remind}}</view>
+		<button class="bg3 margin34" form-type="submit" >确认绑定</button>
+	</form>
+</view>

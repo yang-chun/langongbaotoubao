@@ -1,0 +1,27 @@
+<!--pages/record/details.wxml-->
+<form>
+	<view class="input_box">
+		<input class="input margin34 van-icon-search" name="keywords" maxlength="10" bindinput="search" placeholder=" 输入身份证或者姓名" />
+
+	</view>
+</form>
+
+<view class="list_box">
+	<view class="list margin34" wx:for="{{list}}" wx:key="index">
+		<view class="name">{{item.name}}</view>
+		<view class="id_card">{{item.idcard}}</view>
+	</view>
+</view>
+<view style="color:#bbb;padding-bottom:40rpx;padding-top:40rpx;font-size:28rpx;text-align:center;">
+	<view wx:if="{{isLoading}}">
+		加载中...
+	</view>
+	<view wx:elif="{{list.length == 0}}">
+	  暂无内容
+	</view>
+	<view wx:else>
+	  <text wx:if="{{len == total}}">没有更多了</text>
+	  <text wx:elif="{{isLoading}}">加载中...</text>
+		<view style="height:90rpx" wx:else></view>
+	</view>
+</view>

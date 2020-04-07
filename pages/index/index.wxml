@@ -1,0 +1,79 @@
+<view class="top_box">
+  <view class="top">
+    <view class="margin34" style="position: relative;">
+      <view class="company">您好！{{list.company_name}}</view>
+    </view>
+    <view class="top_data_box">
+      <view wx:if="{{list.user_id}}" class="top_data">
+        <view class="data_l">
+          <view>{{words.B1}}</view>
+          <view class="number">{{list.active_person}}</view>
+        </view>
+        <view class="data_r">
+          <view>{{words.B2}}</view>
+          <view class="number">{{list.month_premium}}</view>
+        </view>
+      </view>
+      <view wx:else class="top_data">
+        <view class="login" bindtap="login">点击登录</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{list.user_id}}" class="contact_box">
+  <view class="contact_list" wx:for="{{list.service_man}}" wx:key="index">
+    <image class="portrait" src="{{item.avatar}}"></image>
+    <view class="list_info">
+      <view class="name">{{item.name}}</view>
+      <view class="info">{{item.describe}}</view>
+    </view>
+    <image bindtap="callem" data-mobile="{{item.mobile}}" class="phone" src="/images/phone.png"></image>
+  </view>
+</view>
+
+<view class="cont_box {{list.user_id?'':'marginN90'}}">
+  <view class="nav padding_34">
+    <view class="title_box"  bindtap="nav" data-nav='1'>
+      <view class="title {{nav == 1?'titlecolor':''}}">常用功能</view>
+      <view class="{{nav == 1?'titleLine':''}}"></view>
+    </view>
+  </view>
+
+  <!-- 保险工具 -->
+  <view wx:if="{{nav == 1}}" class="tool_box padding_34">
+    <view class="tool_list"  bindtap="tool" data-index="1">
+      <view class="title">{{words.A1}}</view>
+      <view class="instructions">{{words.A1_1}}</view>
+    </view>
+    <view class="tool_list"  bindtap="tool" data-index="2">
+      <view class="title">{{words.A2}}</view>
+      <view class="instructions">{{words.A2_1}}</view>
+    </view>
+    <view class="tool_list"  bindtap="tool" data-index="3">
+      <view class="title">{{words.A3}}</view>
+      <view class="instructions">{{words.A3_1}}</view>
+    </view>
+    <view class="tool_list"  bindtap="tool" data-index="4">
+      <view class="title">{{words.A4}}</view>
+      <view class="instructions">{{words.A4_1}}</view>
+    </view>
+    <view class="tool_list"  bindtap="tool" data-index="5">
+      <view class="title">{{words.A5}}</view>
+      <view class="instructions">{{words.A5_1}}</view>
+    </view>
+    <view class="tool_list"  bindtap="tool" data-index="6">
+      <view class="title">{{words.A6}}</view>
+      <view class="instructions">{{words.A6_1}}</view>
+    </view>
+<!--     <view class="tool_list"  bindtap="tool" data-index="7">
+      <view class="title">在线报案</view>
+      <view class="instructions">在线提交报案理赔申请</view>
+    </view>
+    <view class="tool_list"  bindtap="tool" data-index="8">
+      <view class="title">发票申请</view>
+      <view class="instructions">在线查看账单，申请发票。</view>
+    </view> -->
+  </view>
+  <!-- 保险方案 -->
+</view>

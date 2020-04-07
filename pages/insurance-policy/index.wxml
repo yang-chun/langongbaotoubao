@@ -1,0 +1,29 @@
+<!--pages/insurance-policy/index.wxml-->
+<view>
+	<navigator url="details?policy_id={{item.policy_id}}" class="list {{item.is_active==1?'list_bg':'list_failure_bg'}}"  wx:for="{{list}}" wx:key="index">
+		<view class="list_top">
+			<image wx:if="{{item.is_active!=1}}" class="failure_image" src="/images/failure.png"></image>
+			<view class="title">方案类型：{{item.type}}</view>
+			<view class="list_info">
+				<view>{{words.C4}}：{{item.count}}</view>
+				<view class="margin_l_100">总费用：¥{{item.premium}}</view>
+			</view>
+		</view>
+		<view class="list_bottom {{item.is_active== 1?'list_bottom_bg':'list_bottom_failure_bg'}} ">{{words.C5}}：{{item.start_date}}  至  {{item.end_date}}</view>
+	</navigator>
+</view>
+<view style="color:#bbb;padding-bottom:40rpx;padding-top:40rpx;font-size:28rpx;text-align:center;">
+	<view wx:if="{{isLoading}}">
+		加载中...
+	</view>
+	<view wx:elif="{{list.length == 0}}">
+	  暂无内容
+	</view>
+	<view wx:else>
+	  <text wx:if="{{len == total}}">没有更多了</text>
+	  <text wx:elif="{{isLoading}}">加载中...</text>
+		<view style="height:90rpx" wx:else></view>
+	</view>
+
+</view>
+<!-- <button bindtap="a">翻页</button> -->

@@ -1,0 +1,76 @@
+/* pages/login/index.wxss */
+page{
+	background: #fff;
+	border-top: 16rpx solid #F6F8F8;
+}
+
+.logo_box{
+	margin-top: 120rpx;
+	text-align: center;
+	color: #666666;
+	font-size: 36rpx;
+}
+
+.logo{
+	display: flex;
+	justify-content: center;
+}
+
+.logo_box image{
+	width: 150rpx;
+	height: 150rpx;
+	margin-bottom: 34rpx;
+}
+
+.input-placeholder{
+	color: #999;
+	font-weight:400;
+	font-size:28rpx;
+}
+
+.input_box{
+	margin-top: 100rpx;
+}
+
+.input_box input{
+	margin-left: 34rpx;
+	padding-top: 39rpx;
+	padding-bottom: 39rpx;
+	border-bottom: 1rpx solid #F3F5F7;
+}
+
+.remind{
+ 	color: #EA4335;
+	font-size: 28rpx;
+	margin-top: 24rpx;
+	margin-bottom:24rpx ;
+}
+
+.scroll{
+	max-height:276rpx;
+	background: #F6F8F8;
+	/* padding: 24rpx 0; */
+}
+
+.scroll .my_company{
+	display: flex;
+	padding: 24rpx 0;
+	color: #999999;
+	padding-top: 34rpx;
+	padding-bottom: 24rpx;
+	padding-left: 34rpx;
+
+}
+
+
+.input_box button{
+	height: 96rpx;
+	bottom: 0;
+	border-top: 0rpx;
+	border-radius: 0;
+	color: #FFF;
+}
+
+.input_box button::after{
+  border: none;
+}

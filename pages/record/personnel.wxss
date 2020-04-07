@@ -1,0 +1,54 @@
+/* pages/record/details.wxss */
+page{
+	background: #FFF;
+  	color: #363636;
+}
+
+.input_box{
+	background: #F6F8F8;
+	display: flex;
+}
+.input{
+	margin-top: 18rpx;
+	margin-bottom: 18rpx;
+	padding-top: 22rpx;
+	padding-bottom: 22rpx;
+	padding-left: 30rpx;
+	padding-right: 30rpx;
+	background: #fff;
+	border-radius: 6rpx;
+	flex: 1;
+	text-align: center;
+}
+
+.input-placeholder{
+	text-align: center;
+}
+
+/* van-search{
+	padding: 50rpx;
+} */
+.list_box{
+	background: #FFF;
+	height: 100%;
+}
+
+.list{
+	padding-top: 30rpx;
+	padding-bottom: 30rpx;	
+	display: flex;
+	border-bottom: 1rpx solid #F3F5F7;
+	font-size:32rpx;
+}
+
+.list:nth-child(1){
+	padding-top: 54rpx;
+}
+
+.list .name{
+	width: 30%
+}
+
+.list .id_card{
+	width: 70%
+}

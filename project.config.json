@@ -1,0 +1,195 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.10.3",
+	"appid": "wx65ccac91860eed2f",
+	"projectname": "%E8%93%9D%E5%B7%A5%E4%BF%9D%E6%8A%95%E4%BF%9D%E7%B3%BB%E7%BB%9F",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "保单",
+					"pathName": "pages/insurance-policy/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "保单详情",
+					"pathName": "pages/insurance-policy/details",
+					"query": "policy_id=1856",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "增减记录",
+					"pathName": "pages/record/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "加减保详情",
+					"pathName": "pages/record/details",
+					"query": "policy_change_id=20601",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "加保填写保期",
+					"pathName": "pages/add-insurance/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "加保",
+					"pathName": "pages/add-insurance/add",
+					"query": "date=2020-04-03&policy_id=1596&type=C&month=2020-03",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "减保",
+					"pathName": "pages/reduce-insurance/reduce",
+					"query": "date=2020-04-01&policy_id=1596&type=D&month=2020-03",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "一键续保",
+					"pathName": "pages/renewal/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "人员查询",
+					"pathName": "pages/staff-query/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "人员信息",
+					"pathName": "pages/staff-query/details",
+					"query": "employee_id=140277",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "绑定",
+					"pathName": "pages/login/binding",
+					"query": "id=2",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "增减保详情",
+					"pathName": "pages/record/details",
+					"query": "policy_change_id=19774",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "公司信息",
+					"pathName": "pages/user/company-info",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "评价",
+					"pathName": "pages/evaluation/index",
+					"query": "parameter=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/insurance-policy/details",
+					"pathName": "pages/insurance-policy/details",
+					"query": "policy_id=1600",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/record/details",
+					"pathName": "pages/record/details",
+					"query": "policy_change_id=17703",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "减保获取时间保单",
+					"pathName": "pages/reduce-insurance/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 18,
+					"name": "人员名单",
+					"pathName": "pages/record/personnel",
+					"query": "policy_change_id=19970&work_company=腾讯科技有限公司",
+					"scene": null
+				}
+			]
+		}
+	}
+}

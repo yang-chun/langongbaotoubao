@@ -1,0 +1,42 @@
+<!--pages/renewal/index.wxml-->
+<form bindsubmit="confirm" class="confirm">
+	<view class="section margin_l_34">
+		<picker bindchange="bindplan" name="plan" value="{{planValue}}" range="{{plan}}">
+			<view wx:if="{{planValue}}" class="picker color4">
+				<view>{{planValue}}</view>
+				<view class="iconfont icon-xiajiantou"></view>
+			</view>
+			<view wx:else class="picker color3">
+				<view>{{words.C1}}</view>
+				<view class="iconfont icon-xiajiantou"></view>
+			</view>
+		</picker>
+		<view class="cycle">
+			<view class="title">{{words.C13}}</view>
+			<view class="content">{{list.period}}</view>
+		</view>
+		<view class="cycle">
+			<view class="title">{{words.C14}}</view>
+			<view class="options">
+	            <radio-group class="radio-group"  bindchange="radioChange">
+	                <radio class="radio"  value="1" checked="true"><text>使用</text></radio>
+	               	<radio class="radio" value="0" checked=""><text>不使用</text></radio>
+	            </radio-group>
+			</view>
+		</view>
+		<view wx:if="{{is_LastMonth=='0'}}" class="introduction">{{words.C19}}</view>
+		<view wx:else>
+			<view class="cycle">
+				<view class="title">{{words.C16}}</view>
+				<view class="content">{{list.personCount}}</view>
+			</view>
+			<view class="cycle">
+				<view class="title">{{words.C7}}</view>
+				<view class="content">{{list.premium}}</view>
+			</view>
+		</view>
+		<view class="remind margin34">{{remind}}</view>
+	</view>
+
+	<button form-type="submit" disabled="{{planValue==''?true:false}}"  class="{{planValue==''?'bg1':'bg2'}}">确认</button>
+</form>

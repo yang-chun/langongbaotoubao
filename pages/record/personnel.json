@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+		"van-search":"/vant/search/index"
+	},
+	"navigationBarTitleText":"人员名单"
+}
