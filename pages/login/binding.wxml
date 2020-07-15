@@ -11,6 +11,6 @@
 		<input name="user_name" placeholder="输入用户名" value="{{user_name}}" />
 		<input type="password" name="password" placeholder="请输入密码" value="{{password}}"/>
 		<view  class="margin_l_34 remind">{{remind}}</view>
-		<button class="bg3 margin34" form-type="submit" >确认绑定</button>
+		<button class="bg4 margin34" form-type="submit" >确认绑定</button>
 	</form>
 </view>

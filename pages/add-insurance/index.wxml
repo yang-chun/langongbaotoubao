@@ -17,6 +17,6 @@
 		<view class="remind margin34">{{remind}}</view>
 	</view>
 
-	<button form-type="submit"  class="bg3">确认</button>
+	<button form-type="submit"  class="bg5">确认</button>
 </form>
 

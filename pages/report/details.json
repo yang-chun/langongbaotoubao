@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText":"案件详情",
+  "usingComponents": {
+    "van-steps":"/vant/steps/index"
+  }
+}

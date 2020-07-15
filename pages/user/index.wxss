@@ -47,6 +47,13 @@
 	margin-left: 142rpx;
 }
 
+.unbundling{
+	width: 15%;
+	padding-left: 10rpx;
+	padding-right: 10rpx;
+	color: #38358F;
+}
+
 .list .youjiantou{
 	width: 60rpx;
 	height: 60rpx;

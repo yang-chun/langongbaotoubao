@@ -55,5 +55,11 @@ Page({
     });
   },
 
+//   取消登录
+    cancelLogin:function(){
+        wx.reLaunch({
+            url: '/pages/index/index'
+        })
+    }
 
 })

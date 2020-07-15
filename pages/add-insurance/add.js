@@ -10,7 +10,7 @@ Page({
         none:0,
         date:'',
         policy_id:'',
-        type:'',
+        plan:'',
         month:'',
         top: false,
         remind:'',
@@ -27,9 +27,10 @@ Page({
             policy_id:'',
             persons:[]
         },
+        isInput:false,
         sum:0,
-        words: []
     },
+
 
     /**
      * 生命周期函数--监听页面加载
@@ -38,7 +39,7 @@ Page({
         let _this = this,
         date = _this.data.date,
         policy_id = _this.data.policy_id,
-        type = _this.data.type,
+        plan = _this.data.plan,
         month = _this.data.month,
         getCompany = _this.data.getCompany;
         _this.getWords();
@@ -46,7 +47,7 @@ Page({
         _this.setData({
             date:options.date,
             policy_id:options.policy_id,
-            type:options.type,
+            plan:options.plan,
             month:options.month
         })
         wx.getStorage({
@@ -55,7 +56,6 @@ Page({
                 _this.setData({
                     getCompany:res.data.work_company
                 })
-                // console.log('初始数据  '+res.data.work_company)
             }
         })
 
@@ -73,6 +73,15 @@ Page({
      */
     onShow: function () {
 
+    },
+    
+    /**
+     * 顶部弹框执行完后执行 
+     */
+    showInput:function(){
+        this.setData({
+            isInput:true
+        })
     },
 
 
@@ -148,6 +157,7 @@ Page({
             })
         }
 
+
         list.forEach(function(item,index){
             item.persons.forEach(function(perItem,idx){
                 if (perItem.idcard == idcard) {
@@ -181,39 +191,33 @@ Page({
 
         // 添加派遣单位列表
         if (getCompany.length > 0) {
-
             if (getCompany.indexOf(work_company) >= 0) {
                 getCompany.splice(getCompany.indexOf(work_company),1)
                 getCompany.unshift(work_company)
-                // console.log(getCompany.indexOf(work_company))
             }else{
                 getCompany.unshift(work_company)
             }
             getCompany.splice(5)
-            // console.log(getCompany)
         }else{
             getCompany.unshift(work_company)
         }
-
-        _this.setData({
-            getCompany:getCompany
-        })
-
+        
+        // 存入缓存
         wx.setStorage({
             key:"data",
             data:{
                 work_company:getCompany
             }
         })
-
         _this.setData({
             name:'',
             idcard:'',
             work_company:'',
             list:list,
+            sum:_this.data.sum+1, 
+            can_submit:true,
             isfocus:false,
-            sum:_this.data.sum+1,
-            can_submit:true
+            getCompany:getCompany
         })
         _this.hideTop();
     },
@@ -237,9 +241,9 @@ Page({
                     list.splice(index, 1)
                 }
                 _this.setData({
-                    list:list,
-                    sum:_this.data.sum-1,
-                    can_submit:_this.data.sum-1>0?true:false
+                    list:list, 
+                    sum:_this.data.sum-1, 
+                    can_submit:_this.data.sum-1>0?true:false 
                 })
             } else if (res.cancel) {
                 return false;
@@ -264,7 +268,6 @@ Page({
         })
     },
 
-
     // 选择派遣单位
     choose_company:function(e){
         let _this = this,
@@ -282,10 +285,7 @@ Page({
             isfocus:false
         })
     },
-    // 加载提醒
-    // showLoadingToast() {
-    //       Toast.loading({ mask: true, message: '加载中...' });
-    //   },
+
     // 提交数据
     form_list:function(){
         let _this = this,
@@ -308,7 +308,7 @@ Page({
                 })
                 list.forEach(function(item,index){
                     item.persons.forEach(function(formItem,formIndex){
-                        persons.push(formItem)
+                        persons.unshift(formItem)
                     })
                 })
                 persons = JSON.stringify(persons);
@@ -360,6 +360,57 @@ Page({
                 work_company:getCompany
             }
         })
+    },
+    /**
+     * 选择身份证图片
+     */
+    chooseImage: function (e) {
+        let _this = this;
+            // POST 参数
+        let params = {
+            wxapp_id: App.siteInfo.uniacid,
+            token: wx.getStorageSync('token')
+        };
+        _this.setData({
+            name:'',
+            idcard:''
+        })
+        // 选择图片
+        wx.chooseImage({
+        count: 1,
+        sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['camera', 'album'], // 可以指定来源是相册还是相机，默认二者都有
+        success: function (res) {
+            wx.showLoading({
+                title: '正在识别',
+                mask:true
+            })
+            wx.uploadFile({
+                url: App.api_root + 'employee/ocr',
+                filePath: res.tempFilePaths[0],
+                name: 'iFile',
+                formData: params,
+                success: function (res) {
+                    wx.hideLoading()
+                    let result = JSON.parse(res.data);
+                    if(result.code == 1){
+                        _this.setData({
+                            name:result.data.name,
+                            idcard:result.data.idcard
+                        })
+                    }else{
+                        wx.showToast({
+                            title: result.msg,
+                            icon: 'none',
+                            duration: 2000
+                          })
+                    }
+                },complete: function (res) {
+                    
+                }
+            });
+        }
+        });
     },
     /**
      * 生命周期函数--监听页面隐藏

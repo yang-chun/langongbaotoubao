@@ -1,46 +1,59 @@
 <!--pages/add-insurance/index.wxml-->
-<van-popup
-show="{{ show.top }}"
-position="top"
-custom-style=""
-bind:close="hideTop"
->
-	<view class="showTop_box" catchtap="company_hide">
+<view id="j_page">
+	<van-popup
+	show="{{ show.top }}"
+	position="top"
+	custom-style=""
+	bind:close="hideTop"
+	bind:after-enter="showInput"
+	>
+	<!-- {{ show.top }} -->
+	<view class="showTop_box" catchtap="company_hide" wx:if="{{isInput}}" >
 		<form bindsubmit="addlist">
-			<input name="name" placeholder="{{words.C17}}" value="{{name}}" />
-			<input name="idcard" placeholder="{{words.C18}}" value="{{idcard}}" type="idcard" maxlength="18" />
+			<view class="name_box">
+				<view class="iconfont icon-xiangji" catchtap='chooseImage'></view>
+				<input name="name" placeholder="{{words.C17}}" value="{{name}}人" />
+			</view>
+			<view class="name_box">
+				<input name="idcard" placeholder="{{words.C18}}" value="{{idcard}}5110231995101" type="idcard" maxlength="18" />
+			</view>
 			<view catchtap="company_show">
-				<input name="work_company" placeholder="被派遣单位全称" value="{{work_company}}" bindinput="company_input" />
-		        <scroll-view wx:if="{{isfocus}}" class="scroll" scroll-y="true" scroll-x="false">
+				<view class="name_box">
+					<input name="work_company" placeholder="被派遣单位全称" value="{{work_company}}公司" bindinput="company_input" />
+				</view>
+				<scroll-view wx:if="{{isfocus}}" class="scroll" scroll-y="true" scroll-x="false">
 					<view class="my_company" wx:for="{{getCompany}}" wx:key="index" catchtap="choose_company" data-work_company="{{item}}">
 						<view>{{item}}</view>
 						<view class="cha" catchtap="delete_company" data-index="{{index}}">×</view>
 					</view>
-		        </scroll-view>
+				</scroll-view>
 			</view>
 
 			<view  class="margin_l_34 remind">{{remind}}</view>
-			<button class="bg3" form-type="submit" >添加</button>
+			<button class="bg5" form-type="submit" >添加</button>
 		</form>
-	</view>
-</van-popup>
-
-<!-- {{ show.top }} -->
-<view class="top_box">
-	<view class="title">{{words.A3}}</view>
-	<view class="Introduction">{{words.A3_1}}</view>
-	<view class="add_box" bindtap="showTop" >＋</view>
 </view>
-<view class="cont_box">
-	<view class="title_box margin34">
-		<view class="title">{{words.C2}}</view>
-		<view class="Introduction">{{date}} 生效 方案{{type}}</view>
+		
+	</van-popup>
+	<view class="top_box">
+		<view class="title">{{words.A3}}</view>
+		<view class="plan_box padding_34">
+			<view>{{plan}}</view>
+			<view class="padding_34">|</view>
+			<view>{{date}} 生效</view>
+		</view>
 	</view>
-	<view class="list_box margin34">
-		<view wx:if="{{list.length == 0}}" class="none">暂无人员</view>
-		<view wx:else>
+	<view class="cont_box">
+		<view class="add_box">
+			<view>
+				<view class="font_size54 color7">{{sum}}</view>
+				<view class="font_size24 color8">已经添加（人）</view>
+			</view>
+			<view class="add iconfont icon-jia" bindtap="showTop"></view>
+		</view>
+		<view class="list_box margin34">
 			<view class="list" wx:for="{{list}}" wx:key="index">
-				<view class="company_box" >
+				<view class="company_box">
 					<view class="decoration"></view>
 					<view class="company">{{item.work_company}}</view>
 					<view class="send">被派遣单位</view>
@@ -57,8 +70,7 @@ bind:close="hideTop"
 			</view>
 		</view>
 	</view>
-</view>
-
-<view class="add_insurance">
-	<button hover-class="none" class="{{can_submit?'bg2':'bg1'}}" bindtap="form_list">{{words.D1}}（{{sum}}）</button>
+	<view class="add_insurance">
+		<button hover-class="none" class="{{can_submit?'bg5':'bg1'}}" bindtap="form_list">{{words.D1}}</button>
+	</view>
 </view>

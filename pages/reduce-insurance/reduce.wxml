@@ -1,47 +1,65 @@
 <!--pages/add-insurance/index.wxml-->
-<van-popup
-show="{{ show.top }}"
-position="top"
-custom-style=""
-bind:close="hideTop"
->
-	<view class="showTop_box" catchtap="company_hide">
-        <scroll-view class="scroll" scroll-y="true" scroll-x="false">
-			<view class="personnel_box margin34">
-				<view class="personnel_list" wx:for="{{personnel_list}}" wx:key="index" bindtap="choosePersonnel" data-index="{{index}}">
-					<view  class="name">{{item.name}}</view>
-					<view  class="id_card">{{item.idcard}}</view>
+<view id="j_page">
+	<van-popup
+	show="{{ show.top }}"
+	position="top"
+	custom-style=""
+	bind:close="hideTop"
+	bind:after-enter="showInput"
+	>
+	<!-- show="{{ show.top }}" -->
+		<view class="showTop_box" catchtap="company_hide" wx:if="{{isInput}}">
+			<form bindsubmit="getPersonnelList">
+				<view class="add_box">
+					<input name="keyword" value="{{keyword}}" placeholder="输入姓名或派遣单位查询"/>
+					<button form-type="submit" class="iconfont icon-sousuo search"></button>
 				</view>
+			</form>
+			<view wx:if="{{is_search}}">
+				<view class="is_search">加载中...</view>
 			</view>
-        </scroll-view>
-		<view class="cancel_box">
-			<view class="remind">{{remind}}</view>
-			<view class="cancel" bindtap="hideTop">取消</view>
+			<view wx:else>
+				<scroll-view class="scroll" scroll-y="true" scroll-x="false">
+					<view class="personnel_box margin34">
+						<view class="personnel_list" wx:for="{{personnel_list}}" wx:key="index" bindtap="choosePersonnel" data-index="{{index}}">
+							<view class="dispaly_flex">
+								<view class="iconfont icon-duigouxiao {{item.status?'color8':'color11'}}">{{status}}</view>
+								<view  class="name">{{item.name}}</view>
+								<view  class="id_card">{{item.idcard}}</view>
+							</view>
+							<view class="dispaly_flex margin_top20">
+								<view class="date_box">{{item.start_date}}</view>
+								<view class="search_company">{{item.work_company}}</view>
+							</view>
+						</view>
+					</view>
+				</scroll-view>
+			</view>
+			<view class="cancel_box">
+				<view class="remind">当前共有 {{personnel_list.length}} 条结果</view>
+				<view class="cancel" bindtap="hideTop">完成</view>
+			</view>
+		</view>
+	</van-popup>
+
+	<!-- {{ show.top }} -->
+	<view class="top_box">
+		<view class="title">{{words.A4}}</view>
+		<view class="plan_box padding_34">
+			<view>{{type}}</view>
+			<view class="padding_34">|</view>
+			<view>{{date}} 生效</view>
 		</view>
 	</view>
-</van-popup>
-
-<!-- {{ show.top }} -->
-<view class="top_box">
-	<view class="title">{{words.A4}}</view>
-	<view class="Introduction">{{words.A4_1 }}</view>
-	<!-- <view class="add_box" bindtap="showTop" >＋</view> -->
-	<form bindsubmit="getPersonnelList">
-		<view class="add_box">
-			<input name="keyword" value="{{keyword}}" placeholder="输入身份证号或者姓名查询"/>
-			<button form-type="submit" class="iconfont icon-sousuo search"></button>
+	<view class="cont_box">
+		<view class="add_box2">
+			<view>
+				<view class="font_size54 color7">{{sum}}</view>
+				<view class="font_size24 color8">已经添加（人）</view>
+			</view>
+			<view class="add iconfont icon-jia" bindtap="showTop"></view>
 		</view>
-	</form>
-
-</view>
-<view class="cont_box">
-	<view class="title_box margin34">
-		<view class="title">{{words.C3}}</view>
-		<view class="Introduction">{{date}}生效 {{type}}</view>
-	</view>
-	<view class="list_box margin34">
-		<view wx:if="{{list.length == 0}}" class="none">暂无人员</view>
-		<view wx:else>
+		<view class="list_box margin34">
 			<view class="list" wx:for="{{list}}" wx:key="index">
 				<view class="company_box" >
 					<view class="decoration"></view>
@@ -53,14 +71,14 @@ bind:close="hideTop"
 						<view class="name">{{infoitem.name}}</view>
 						<view class="id_card">{{infoitem.idcard}}</view>
 						<view class="delete_box">
-							<view class="delete" bindtap="delete" data-idx="{{idx}}" data-index="{{index}}">－</view>
+							<view class="delete bg4 iconfont icon-minus" bindtap="delete" data-idx="{{idx}}" data-index="{{index}}"></view>
 						</view>
 					</view>
 				</view>
 			</view>
 		</view>
 	</view>
-</view>
-<view class="add_insurance">
-	<button hover-class="none" class="{{can_submit?'bg2':'bg1'}}"  bindtap="form_list">{{words.D2}}（{{sum}}）</button>
+	<view class="add_insurance">
+		<button hover-class="none" class="{{can_submit?'bg5':'bg1'}}"  bindtap="form_list">{{words.D2}}</button>
+	</view>
 </view>

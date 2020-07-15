@@ -75,7 +75,7 @@ Page({
         planList = _this.data.planList;
         App._get("policy/activeLists",{},function(res){
             res.data.forEach(function(item,index){
-                plan.push("方案"+item.type+'('+item.month+')')
+                plan.push(item.plan+'('+item.month+')')
             })
             _this.setData({
                 plan:plan,
@@ -97,7 +97,7 @@ Page({
         _this.setData({
             planValue:plan[value],
             policy_id:planList[value].policy_id,
-            type:planList[value].type,
+            type:planList[value].plan,
             month:planList[value].month,
             date_from:planList[value].date_from,
             date_to:planList[value].date_to
@@ -105,7 +105,6 @@ Page({
         _this.setData({
             remind: ""
         })
-        // console.log(planList[e.detail.value].policy_id)
     },
 
     confirm:function(e){
@@ -118,7 +117,7 @@ Page({
         words = _this.data.words.C1;
         if (!plan) {
             _this.setData({
-                remind: "*请"+words+"！"
+                remind: "*请" + words + "！"
             })
             return false;
         }else if(!date){
@@ -134,40 +133,6 @@ Page({
         wx.navigateTo({
             url:"/pages/reduce-insurance/reduce?date="+date+"&policy_id="+policy_id+"&type="+type+"&month="+month
         })
-
-    },
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
 
     }
 })

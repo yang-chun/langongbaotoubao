@@ -1,0 +1,74 @@
+/* pages/claimsProcess/index.wxss */
+.head{
+    color: #363636;
+    margin-top: 48rpx;
+    font-size: 36rpx;
+    font-weight: bold;
+    margin-bottom:30rpx;
+}
+
+.process_box{
+    background:#fff;
+    margin-top: 30rpx;
+    padding-top: 30rpx;
+}
+
+.process{
+    border:2rpx solid #38358F;
+    border-radius: 8rpx;
+    position:relative;
+    padding: 24rpx 0;
+    margin-top: 30rpx;
+}
+
+.process:nth-child(1){
+    margin-top: 0rpx;
+}
+
+.process_style{
+    background:#fff;
+    position: absolute;
+    left: 30rpx;
+    font-size: 100rpx;
+    bottom: -2rpx;
+    line-height: 80rpx;
+    color: #38358F;
+    text-shadow:-6rpx 4rpx 0rpx #CDCCE3;
+    -webkit-transform: skew(-8deg);
+	-ms-transform: skew(-8deg);
+	-moz-transform:skew(-8deg);
+    -o-transform:skew(-8deg);
+    padding:0 6rpx;
+}
+
+.cont_box{
+    margin-left: 150rpx;
+    font-size: 24rpx;
+    line-height: 45rpx;
+}
+
+.cont_title{
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.need_material{
+    margin-left: 12rpx;
+    color: #F57929;
+    font-size: 24rpx;
+    font-weight: 400;
+}
+
+.add_insurance button{
+	width: 100%;
+	height: 96rpx;
+	position: fixed;
+	bottom: 0;
+	border-top: 0rpx;
+	border-radius: 0;
+	color: #FFF;
+}
+
+.add_insurance button::after{
+  border: none;
+}

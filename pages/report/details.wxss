@@ -1,0 +1,91 @@
+/* pages/report/details.wxss */
+page{
+    background:#FFF;
+}
+
+.amount_box{
+    padding-left: 34rpx;
+    padding-right: 34rpx;
+    padding-top: 24rpx;
+    padding-bottom: 34rpx;
+    border-bottom: 24rpx solid #F6F8F8;
+}
+
+.amount_box .title{
+    font-size: 24rpx;
+}
+
+.amount_box .amount{
+    font-size: 54rpx;
+    font-weight: bold;
+}
+
+.info_list_box{
+    margin-left: 34rpx;
+    margin-right: 34rpx;
+    border-bottom: 1rpx solid #C5CDCB;
+}
+
+.info_list_box:nth-child(3){
+    border-bottom: 24rpx solid #F6F8F8;
+    margin: 0;
+    padding-left: 34rpx;
+    padding-right: 34rpx;
+
+}
+
+.info_list_box .info_head{
+    font-size: 36rpx;
+    color: #363636;
+    font-weight: bold;
+    margin-top:34rpx;
+    margin-bottom: 48rpx;
+}
+
+.info_list_box .cont_box{
+    display:flex;
+    justify-content: space-between;
+    padding-bottom: 28rpx;
+    font-size: 28rpx;
+    color: #363636;
+}
+
+.info_list_box .cont_box view:nth-child(1){
+    width:60%;
+}
+
+.info_list_box .cont_box view:nth-child(2){
+    width:auto;
+}
+
+.progress_box{
+    margin-left: 20rpx;
+    margin-right: 18rpx;
+    padding-bottom: 50rpx;
+}
+
+.progress_head{
+    font-size: 36rpx;
+    color: #363636;
+    font-weight: bold;
+    margin-top:34rpx;
+    margin-bottom: 28rpx;
+    margin-left: 20rpx;
+}
+
+.van-step view:nth-child(2){
+    margin-top: 20rpx;
+    
+}
+
+.van-step:nth-child(1) view{
+    color: #363636;
+}
+
+.no_record{
+    margin-left: 20rpx;
+    color: #999;
+    font-size: 28rpx;
+}
+
+    

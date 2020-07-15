@@ -17,12 +17,20 @@
     "pages/renewal/index",
     "pages/staff-query/index",
     "pages/staff-query/details",
-    "pages/evaluation/index"
+    "pages/evaluation/index",
+    "pages/customer/index",
+    "pages/report/index",
+    "pages/report/details",
+    "pages/report/add",
+    "pages/report/claimsProcess",
+    "pages/needMaterial/index",
+    "pages/topUp/index",
+    "pages/wep/index"
 ],
 "window": {
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fff",
-  "navigationBarTitleText": "自定义底部导航栏",
+  "navigationBarTitleText": "云小保",
   "navigationBarTextStyle": "black"
 },
 "tabBar": {

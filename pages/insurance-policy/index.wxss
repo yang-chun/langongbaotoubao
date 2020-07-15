@@ -3,20 +3,20 @@ page{
 	background: #fff;
 }
 .list_bg{
-	background: #EEFAF6;
+	background:rgba(56,53,143,.06);
 }
 
 .list_bottom_bg{
-	background: #12C286;
+	background: rgba(56,53,143,1);
 }
 
 
 .list_failure_bg{
-	background: #FFF2F5;
+	background:rgba(245,121,41,.06);
 }
 
 .list_bottom_failure_bg{
-	background: #F7ADA8;
+	background: #F57929;
 }
 
 .failure_image{

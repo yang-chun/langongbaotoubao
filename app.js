@@ -2,11 +2,10 @@
  * tabBar页面路径列表 (用于链接跳转时判断)
  * tabBarLinks为常量, 无需修改
  */
-// const tabBarLinks = [
-//   'pages/found/index',
-//   'pages/customer/customer',
-//   'pages/user/index'
-// ];
+const tabBarLinks = [
+  'pages/index/index',
+  'pages/user/index'
+];
 
 // 工具类
 // const util = require('./utils/util.js');
@@ -20,7 +19,7 @@ App({
     user_id: null,
     words:[]
   },
-  version:"1.0.1",
+  version:"1.0.7",
   // api地址
   api_root: '',
   siteInfo: require('siteinfo.js'),
@@ -38,7 +37,6 @@ App({
     //获取小程序菜单缓存
     this.setWords();
   // console.log(wx.getStorageSync("words"))
-
   },
 
   /**
@@ -355,35 +353,41 @@ App({
       })
     });
   },
+    /**
+     * 获取tabBar页面路径列表
+     */
+    getTabBarLinks: function () {
+        return tabBarLinks;
+    },
+    /**
+     * 跳转到指定页面
+     * 支持tabBar页面
+     */
+    navigationTo: function (url) {
+        if (!url || url.length == 0) {
+            return false;
+        }
+        let tabBarLinks = this.getTabBarLinks();
 
-  /**
-   * 获取tabBar页面路径列表
-   */
-  getTabBarLinks: function () {
-    return tabBarLinks;
-  },
+        if(url.substring(0, 4) == 'http'){
+          wx.navigateTo({
+            url: '/pages/wep/index?url='+url
+          })
+        }else{
+          // tabBar页面
+          if (tabBarLinks.indexOf(url) > -1) {
+              wx.switchTab({
+                  url: '/' + url
+              });
+          } else {
+              // 普通页面
+              wx.navigateTo({
+                  url: '/' + url
+              });
+          }
+        }
 
-  /**
-   * 跳转到指定页面
-   * 支持tabBar页面
-   */
-  navigationTo: function (url) {
-    if (!url || url.length == 0) {
-      return false;
-    }
-    let tabBarLinks = this.getTabBarLinks();
-    // tabBar页面
-    if (tabBarLinks.indexOf(url) > -1) {
-      wx.switchTab({
-        url: '/' + url
-      });
-    } else {
-      // 普通页面
-      wx.navigateTo({
-        url: '/' + url
-      });
-    }
-  },
+    },
 
   /**
    * 记录formId

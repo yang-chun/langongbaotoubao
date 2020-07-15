@@ -1,0 +1,127 @@
+<van-popup
+    show="{{ show.top }}"
+    position="top"
+    custom-style=""
+    bind:close="hideTop"
+    bind:after-enter="showInput"
+    >
+    <view class="showTop_box" wx:if="{{isInput}}" >
+        <form bindsubmit="getPersonnelList">
+            <view class="add_box">
+                <input name="keyword" value="{{keyword}}" placeholder="输入身份证号或者姓名查询"/>
+                <button form-type="submit" class="iconfont icon-sousuo search"></button>
+            </view>
+        </form>
+        <view wx:if="{{is_search}}">
+            <view class="is_search">加载中...</view>
+        </view>
+        <view wx:else>
+            <scroll-view class="scroll" scroll-y="true" scroll-x="false">
+                <view class="personnel_box margin34">
+                    <view class="personnel_list" wx:for="{{personnel_list}}" wx:key="index" bindtap="choosePersonnel" data-index="{{index}}">
+                        <view  class="name">{{item.name}}</view>
+                        <view  class="id_card">{{item.idcard}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+        
+        <view class="cancel_box">
+            <view class="remind">{{remind}}</view>
+            <view class="cancel" bindtap="hideTop">取消</view>
+        </view>
+    </view>
+</van-popup>
+
+<van-popup 
+    show="{{ helpShow }}" 
+    bind:close="onClose"
+    duration="0"
+    round="true"
+    custom-style="padding:34rpx;width:70%;font-size:28rpx;color:#666666"
+    
+    >
+    <!-- <cover-view style="height:500rpx"> -->
+    <view>工伤提示:</view>
+    <view style="margin-top:20rpx">（一）在工作时间和工作场所内，因工作原因受到事故伤害的；</view>  
+    <view style="margin-top:20rpx">（二）在上下班途中，受到非本人主要责任的交通事故或者城市轨道交通、客运轮渡、火车事故伤害的。</view>  
+    <!-- </cover-view> -->
+</van-popup>
+<form class="form_box" catchsubmit="formSubmit" catchreset="formReset">
+    <view class="form_list color3" bindtap="showTop">
+        <view class="_list">
+            <view class="title">出险人</view>
+            <view class="iconfont icon-iconfontjiantou5 color3"></view>
+        </view>
+        <view class="val_box">
+            <view>{{employee.name}}</view>
+            <view>{{employee.idcard}}</view>
+            <input class="hide" name="employee_id" value="{{employee.employee_id}}"/>
+        </view>
+    </view>
+    <view class="color8 font_size24 margin34" style="margin-top:10rpx">请填写伤者真实电话，不要留劳务公司电话。否则影响理赔时效！</view>
+    <view class="form_list color3"  style="padding-top:5rpx">
+        <view class="_list">
+            <input type="number" name="employee_phone" 
+            placeholder="输入出险人电话"
+            />
+        </view>
+    </view>
+    <view class="form_list color3">
+        <view class="_list">
+            <input type="number" name="reporter_phone" 
+            placeholder="输入报案人电话"
+            />
+        </view>
+    </view>
+    <view class="form_list color3">
+        <picker  mode="date" name="case_date" value="{{date}}" bindchange="bindDate" >
+            <view class="_list">
+                <view class="title">出险日期（员工发生事故时间）</view>
+                <view class="iconfont icon-iconfontjiantou5 color3"></view>
+            </view>
+            <view class="val_box">
+                <view>{{date}}</view>
+            </view>
+        </picker>
+   </view>
+    <view class="form_list color3">
+        <view class="_list">
+            <input name="case_address" 
+            placeholder="输入出险地点（XX公司XX车间）"
+            />
+        </view>
+    </view>
+    <view class="form_list color3">
+        <view class="_list">
+            <view class="title">是否骨折骨折或更严重伤情</view>
+        </view>
+        <radio-group class="radio-group"  bindchange="isFracture">
+            <radio class="radio" value="0" checked=""><text>没有</text></radio>
+            <radio class="radio"  value="1" checked=""><text>有</text></radio>
+        </radio-group>
+    </view>
+    <view class="form_list color3">
+        <view class="_list">
+            <view class="title help_box">
+                <view>事故类型</view>
+                <view class="help_">
+                    <view class="help" bindtap="showPopup">!</view>
+                </view>
+            </view>
+        </view>
+        <radio-group class="radio-group"  bindchange="isInductrial">
+            <radio class="radio"  value="工伤" checked=""><text>工伤</text></radio>
+            <radio class="radio" value="意外" checked=""><text>意外</text></radio>
+        </radio-group>
+    </view>
+    
+    <textarea wx:if="{{!helpShow && !show.top}}" class="_textarea" name="case_desc" placeholder="详细事故经过" bindinput="inputs" maxlength="100" >
+        <view class="maximum" >{{introductionLength}}/100</view>
+    </textarea>
+    <view class="_textarea_box" wx:else></view>
+    
+    <view class="add_insurance">
+        <button hover-class="none" class="bg5" formType="submit">提交</button>
+    </view>
+</form>

@@ -20,7 +20,11 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"compileHotReLoad": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.3",
@@ -109,7 +113,7 @@
 					"id": 7,
 					"name": "减保",
 					"pathName": "pages/reduce-insurance/reduce",
-					"query": "date=2020-04-01&policy_id=1596&type=D&month=2020-03",
+					"query": "date=2020-06-03&policy_id=1856&type=C&month=2020-03",
 					"scene": null
 				},
 				{
@@ -187,6 +191,62 @@
 					"name": "人员名单",
 					"pathName": "pages/record/personnel",
 					"query": "policy_change_id=19970&work_company=腾讯科技有限公司",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "授权登录",
+					"pathName": "pages/login/login",
+					"query": "date=2020-04-03&policy_id=1596&type=C&month=2020-03",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "数据",
+					"pathName": "pages/customer/index",
+					"query": "date=2020-04-03&policy_id=1596&type=C&month=2020-03",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "在线报案",
+					"pathName": "pages/report/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 22,
+					"name": "案件详情",
+					"pathName": "pages/report/details",
+					"query": "report_id=642",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "理赔流程",
+					"pathName": "pages/claimsProcess/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "需要什么材料",
+					"pathName": "pages/needMaterial/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 25,
+					"name": "新增报案",
+					"pathName": "pages/report/add",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "充值",
+					"pathName": "pages/topUp/index",
+					"query": "date=2020-06-03&policy_id=1856&type=C&month=2020-03",
 					"scene": null
 				}
 			]

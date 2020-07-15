@@ -1,0 +1,53 @@
+<view class="top_box">
+    <view class="process_box" bindtap="claimsProcess">仔细阅读理赔流程></view>
+    <view class="title margin34">已理赔金额</view>
+    <view class="money">￥{{data.money_payed}}</view>
+    <view class="dispose_type_box">
+        <view class="dispose_type">
+            <view>全部</view>
+            <view>{{data.all_num}}</view>
+        </view>
+        <view class="dispose_type">
+            <view>待受理</view>
+            <view>{{data.pending_num}}</view>
+        </view>
+        <view class="dispose_type">
+            <view>处理中</view>
+            <view>{{data.process_num}}</view>
+        </view>
+        <view class="dispose_type">
+            <view>已结案</view>
+            <view>{{data.finish_num}}</view>
+        </view>
+    </view>
+</view>
+<view class="add_box iconfont icon-jia" bindtap="addReport"> 新增报案</view>
+<view class="list_box">
+    <view class="list margin34" bindtap="details" data-report_id="{{item.report_id}}" wx:for="{{list}}" wx:key="index">
+        <image wx:if="{{item.status == '待受理'}}" class="type_icon" src="/images/dai.png"></image>
+        <image wx:elif="{{item.status == '处理中'}}" class="type_icon" src="/images/zhong.png"></image>
+        <image wx:elif="{{item.status == '已结案'}}" class="type_icon" src="/images/jie.png"></image>
+        <image wx:elif="{{item.status == '驳回'}}" class="type_icon" src="/images/bo.png"></image>
+        <view class="list_info_box">
+            <view class="list_info color4 font_size30">
+                <view>{{item.employee.name}}·{{item.plan}}</view>
+                <view class="type {{item.status=='处理中'?'color2':'' || item.status=='待受理'?'color6':''|| item.status=='已结案'?'color10':''|| item.status=='驳回'?'color9':''}}">{{item.status}}</view>
+            </view>
+            <view class="">{{item.trends}}</view>
+            <view class="">出险日期：{{item.case_date}}</view>
+        </view>
+    </view>
+</view>
+<view style="color:#bbb;font-size:28rpx;text-align:center;margin-bottom:20rpx;">
+	<view wx:if="{{isLoading}}">
+		加载中...
+	</view>
+	<view wx:elif="{{list.length == 0}}">
+		暂无内容
+	</view>
+	<view wx:else>
+		<text wx:if="{{len == total}}">没有更多了</text>
+		<text wx:elif="{{isLoading}}">加载中...</text>
+		<view style="height:90rpx" wx:else></view>
+	</view>
+</view>

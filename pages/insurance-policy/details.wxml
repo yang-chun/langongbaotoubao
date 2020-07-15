@@ -1,7 +1,7 @@
 <!--pages/insurance-policy/details.wxml-->
 	<view class="top_box padding_34" bindscrolltolower="onPageScroll">
 		<view class="plan_box">
-			<view class="plan_type">方案类型：{{details.type}}</view>
+			<view class="plan_type">方案类型：{{details.plan}}</view>
 			<view class="plan_info">{{details.policy_no}}</view>
 		</view>
 		<view  class="top_data_box">
@@ -22,7 +22,7 @@
 		<view class="list table  {{scrollTop>260?'topnav2':''}}">
 		    <view class="tr {{scrollTop>260?'topnav':''}}">
 		      <view class="th operation_type_box">操作类型</view>
-		      <view class="th type">方案</view>
+		      <!-- <view class="th type">方案</view> -->
 		      <view class="th number">人数 </view>
 		      <view class="th premium">{{words.C11}}</view>
 		      <view class="th effect_date">生效日期</view>
@@ -35,7 +35,7 @@
 		      	<view wx:elif="{{item.type == '减保'}}">{{words.A4}}</view>
 		      	<view wx:elif="{{item.type == '期初投保'}}">期初</view>
 		      </view>
-		      <view class="td type">{{item.policy_type}}</view>
+		      <!-- <view class="td type">{{item.policy_type}}</view> -->
 		      <view class="td number">{{item.count}}</view>
 		      <view class="td premium {{item.type==words.A4?'color1':'color2'}}">{{item.premium}}</view>  
 		      <view class="td effect_date">{{item.start_date}}</view>  

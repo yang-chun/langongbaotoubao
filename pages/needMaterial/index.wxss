@@ -1,0 +1,87 @@
+/* pages/needMaterial/index.wxss */
+.prompt_box{
+    display: flex;
+    background:rgba(245, 121, 41, .1);
+    color: #F57929;
+    font-size: 24rpx;
+    padding: 27rpx 34rpx;
+}
+
+.prompt_icon{
+    width: 34rpx;
+    height: 34rpx;
+    background:#F57929;
+    color: #fff;
+    text-align: center;
+    line-height: 34rpx;
+    margin-right: 12rpx;
+    border-radius: 50%;
+}
+
+.card{
+    display: flex;
+    background:#fff;
+    border-radius:6rpx;
+    padding: 24rpx 32rpx;
+    margin: 30rpx 34rpx 0 34rpx;
+    position: relative;
+    overflow:hidden;
+    flex-wrap: wrap;
+}
+
+.serial_box{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 56rpx;
+    height:56rpx;
+    background: #38358F;
+    border-radius: 50%;
+    margin-right: -6rpx;
+    margin-top: -6rpx;
+    text-align: center;
+    line-height: 56rpx;
+    color: #fff;
+    font-size: 30rpx;
+}
+
+.card .image{
+    width: 192rpx;
+    max-height: 258rpx;
+}
+
+.cont_box{
+    width: 394rpx;
+    margin-left: 30rpx;
+}
+
+.type_box{
+    display: flex;
+}
+
+.type_box .title{
+    margin-left: 12rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.type_box .type{
+    font-size: 20rpx;
+    color: #F57929;
+    padding: 12rpx 18rpx;
+    border: 1rpx solid #F57929;
+    border-radius: 6rpx;
+}
+
+.Introduction{
+    font-size: 28rpx;
+    color: #666666;
+    margin-top: 30rpx;
+}
+
+.warning_box{
+    margin-top: 20rpx;
+    margin-bottom: 55rpx;
+    color: #F57929;
+    font-size: 24rpx;
+}

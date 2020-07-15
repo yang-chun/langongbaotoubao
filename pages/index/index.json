@@ -1,6 +1,7 @@
 {
     "usingComponents": {
-        "van-button": "/vant/button/index"
+        "van-button": "/vant/button/index",
+        "van-notice-bar":"/vant/notice-bar/index"
     },
     "navigationBarTitleText":"首页",
     "enablePullDownRefresh": true,

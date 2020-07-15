@@ -6,7 +6,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        expression:3
+        expression:'',
+        parameter:''
     },
 
     /**
@@ -35,7 +36,7 @@ Page({
     //选择表情
     expression:function(e){
         this.setData({
-            isExpression:e.currentTarget.dataset.index
+            expression:e.currentTarget.dataset.index
         })
     },
 
@@ -43,7 +44,15 @@ Page({
     formsubmit:function(e){
         let _this = this,
         expression = _this.data.expression,
-        advice = e.detail.value;
+        advice = e.detail.value.advice;
+        App._post_form('feedback/add',{
+            rank:expression,
+            content:advice
+        },function(res){
+            wx.reLaunch({
+                url: '/pages/index/index'
+            })
+        })
     },
 
     //完成

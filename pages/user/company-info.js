@@ -103,7 +103,13 @@ Page({
                         wx.showToast({
                           title: '修改成功',
                           icon: 'success',
-                          duration: 1000
+                          duration: 2000,
+                          mask:true,
+                          success:function(){
+                            wx.reLaunch({
+                                url: '/pages/user/index'
+                            })
+                          }
                         })
                     }
                 })

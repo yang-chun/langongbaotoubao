@@ -1,0 +1,23 @@
+<view wx:if="{{info.account_number}}">
+    <view class="code_box">
+        <view class="code_1">
+            <view>开户银行</view>
+            <view class="color8">充值汇款账户</view>
+        </view>
+        <view class="code_2">{{info.bank_name}}</view>
+        <view class="code_3">{{info.account_number}}</view>
+        <view class="code_1">
+            <view>开户名称</view>
+        </view>
+        <view class="code_4">
+            <view>{{info.full_name}}</view>
+            <view class="copy" bindtap="copy" data-content="{{info.bank_name}}\n{{info.account_number}}\n{{info.full_name}}">复制</view>
+        </view>
+    </view>
+    <view class="prompt_box margin34">
+        <view class="title">温馨提示：</view>
+        <view>1、请务必使用<text class="color8">{{company_name}}</text>的账户公对公打款</view>
+        <view>2、财务收到打款后，将在30分钟内完成充值操作。（如长时间未到账，请联系您的专属客服）</view>
+    </view>
+</view>
+<view class="empty" wx:else>对不起，您还没有开通专属账户！</view>

@@ -23,14 +23,5 @@
 			<view>{{item.start_date}}</view>
 			<view>{{item.end_date}}</view>
 		</view>
-<!-- 		<view class="date_box" style="color: #363636">
-			<view class="company_box" >
-				<view class="company">单位名称</view>
-				<view class="send">被派遣单位</view>
-			</view>
-
-			<view>2020-03-18 00:00:00</view>
-			<view>2020-04-18 23:59:59</view>
-		</view> -->
 	</view>
 </view>

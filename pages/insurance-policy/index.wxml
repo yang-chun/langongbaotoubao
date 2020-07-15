@@ -3,7 +3,7 @@
 	<navigator url="details?policy_id={{item.policy_id}}" class="list {{item.is_active==1?'list_bg':'list_failure_bg'}}"  wx:for="{{list}}" wx:key="index">
 		<view class="list_top">
 			<image wx:if="{{item.is_active!=1}}" class="failure_image" src="/images/failure.png"></image>
-			<view class="title">方案类型：{{item.type}}</view>
+			<view class="title">方案类型：{{item.plan}}</view>
 			<view class="list_info">
 				<view>{{words.C4}}：{{item.count}}</view>
 				<view class="margin_l_100">总费用：¥{{item.premium}}</view>

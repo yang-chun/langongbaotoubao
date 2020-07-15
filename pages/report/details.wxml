@@ -1,0 +1,75 @@
+<view class="amount_box" wx:if="{{case_money != 0}}">
+    <view class="title">理赔金额</view>
+    <view class="amount">¥{{case_money}}</view>
+</view>
+<view class="info_list_box">
+    <view class="info_head">基本信息</view>
+    <view class="cont_box">
+        <view>出险人</view>
+        <view>{{info.employee.name}}</view>
+    </view>
+    <view class="cont_box">
+        <view>出险人电话</view>
+        <view>{{info.employee_phone}}</view>
+    </view>
+    <view class="cont_box">
+        <view>身份证</view>
+        <view>{{info.employee.idcard}}</view>
+    </view>
+    <view class="cont_box">
+        <view>出险日期</view>
+        <view>{{info.case_date}}</view>
+    </view>
+</view>
+<view class="info_list_box">
+    <view class="info_head">投保信息</view>
+    <view class="cont_box">
+        <view>方案类型</view>
+        <view>{{policy.plan}}</view>
+    </view>
+    <view class="cont_box">
+        <view>加保日期</view>
+        <view>{{policy.start_date}}</view>
+    </view>
+    <view class="cont_box">
+        <view>退保日期</view>
+        <view>{{policy.end_date}}</view>
+    </view>
+    <view class="cont_box">
+        <view>被派遣单位</view>
+        <view>{{policy.work_company}}</view>
+    </view>
+</view>
+<view class="info_list_box">
+    <view class="info_head">事故信息</view>
+    <view class="cont_box">
+        <view>报案人电话</view>
+        <view>{{info.reporter_phone}}</view>
+    </view>
+    <view class="cont_box">
+        <view>事故类型</view>
+        <view>{{info.type}}</view>
+    </view>
+    <view class="cont_box">
+        <view>是否骨折或严重伤情</view>
+        <view>{{info.is_serious == 0?'没有':'有'}}</view>
+    </view>
+    <view class="cont_box">
+        <view>出险地点</view>
+        <view>{{info.case_address}}</view>
+    </view>
+</view>
+<view class="info_list_box">
+    <view class="info_head">事故经过</view>
+    <view class="cont_box">{{info.case_desc}}</view>
+</view>
+<view class="progress_box">
+    <view class="progress_head">进度追踪</view>
+    <view class="no_record" wx:if="{{trace.length == 0}}">暂无进度</view>
+    <van-steps
+    steps="{{ trace }}"
+    active="{{ active }}"
+    direction="vertical"
+    active-color="#38358F"
+    />
+</view>

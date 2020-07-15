@@ -1,0 +1,38 @@
+<view class="head margin34">理赔流程</view>
+<view class="process_box padding_34">
+    <view class="process">
+        <view class="process_style">1</view>
+        <view class="cont_box">
+            <view class="cont_title">在线报案</view>
+            <view class="color3">蓝工保业务平台在线报案</view>
+        </view>
+    </view>
+    <view class="process">
+        <view class="process_style">2</view>
+        <view class="cont_box">
+            <view class="cont_title">
+                <text>准备材料</text>
+                <text class="need_material" bindtap="needMaterial">需要什么材料 ></text>
+            </view>
+            <view class="color3">所有证件，必须合规有效</view>
+        </view>
+    </view>
+    <view class="process">
+        <view class="process_style">3</view>
+        <view class="cont_box">
+            <view class="cont_title">邮寄材料</view>
+            <view class="color3">简单案件三天内完成理赔！</view>
+        </view>
+    </view>
+    <view class="font_size28 margin_top40 padding_bottm40说">
+        <!-- <text class="color4">请阅读</text>
+        <text class="color8">《责任免除》</text> -->
+    </view>
+</view>
+
+
+
+
+<view class="add_insurance">
+    <button hover-class="none" class="bg5"  bindtap="addReport">新增报案</button>
+</view>

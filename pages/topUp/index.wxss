@@ -1,0 +1,65 @@
+/* pages/topUp/index.wxss */
+.code_box{
+    width: 82%;
+    height: 300rpx;
+    background:url(https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/tap-up-bg.png);
+    background-size:100%;
+    background-repeat: no-repeat ;
+    margin: 0 auto;
+    margin-top: 34rpx;
+    padding: 34rpx;
+}
+
+.code_1{
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255,255,255,.6);
+    font-size: 24rpx;
+}
+
+.code_2{
+    color: #fff;
+    font-size: 30rpx;
+    margin-top: 12rpx;
+    font-weight: bold;
+}
+
+.code_3{
+    color: #fff;
+    font-size: 50rpx;
+    margin-top: 22rpx;
+    margin-bottom: 34rpx;
+}
+
+.code_4{
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255,255,255,1);
+    font-size: 28rpx;
+    margin-top: 6rpx;
+}
+
+.copy{
+    color: rgba(255,255,255,.6);
+    position: absolute;
+    right: 34rpx;
+    padding: 0 34rpx;
+}
+
+.prompt_box{
+    margin-top: 24rpx;
+    font-size: 32rpx;
+    color: #323234;
+}
+
+.prompt_box view{
+    line-height: 50rpx;
+}
+
+.empty{
+    text-align: center;
+    margin-top: 80rpx;
+    margin-bottom: 40rpx;
+    color: #F57929;
+    font-size:32rpx;
+}

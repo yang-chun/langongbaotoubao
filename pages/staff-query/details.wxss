@@ -24,8 +24,7 @@
 .list .decoration{
 	width: 8rpx;
 	height: 24rpx;
-	background: #000;
-    background:linear-gradient(315deg,rgba(0,223,179,1) 0%,rgba(0,197,219,1) 100%);
+    background:#38358F;
     margin-right: 18rpx;
 }
 
@@ -77,14 +76,14 @@
 }
 
 .notIn_label{
-	border: 1rpx solid #EA4335;
-	color: #EA4335;
+	border: 1rpx solid #F57929;
+	color: #F57929;
 }
 
 
 .in_label{
-	border: 1rpx solid #12C286;
-	color: #12C286;
+	border: 1rpx solid #38358F;
+	color: #38358F;
 }
 
 .date_box{

@@ -1,3 +1,4 @@
+<van-notice-bar wx:if="{{notice.content != ''}}" mode="{{notice.url?'link':'closeable'}}" text="{{notice.content}}" url="/" bindtap="jump"   data-url="{{notice.url}}" left-icon="//img.yzcdn.cn/public_files/2017/8/10/6af5b7168eed548100d9041f07b7c616.png"/>
 <view class="top_box">
   <view class="top">
     <view class="margin34" style="position: relative;">
@@ -10,8 +11,11 @@
           <view class="number">{{list.active_person}}</view>
         </view>
         <view class="data_r">
-          <view>{{words.B2}}</view>
-          <view class="number">{{list.month_premium}}</view>
+          <view>{{words.B3}}</view>
+          <view class="number">
+            <view>{{list.balance}}</view>
+             <view class="top-up" bindtap="topUp">充值></view>
+          </view>
         </view>
       </view>
       <view wx:else class="top_data">
@@ -33,36 +37,59 @@
 </view>
 
 <view class="cont_box {{list.user_id?'':'marginN90'}}">
-  <view class="nav padding_34">
+  <!-- <view class="nav padding_34">
     <view class="title_box"  bindtap="nav" data-nav='1'>
       <view class="title {{nav == 1?'titlecolor':''}}">常用功能</view>
       <view class="{{nav == 1?'titleLine':''}}"></view>
     </view>
-  </view>
+  </view> -->
 
   <!-- 保险工具 -->
   <view wx:if="{{nav == 1}}" class="tool_box padding_34">
-    <view class="tool_list"  bindtap="tool" data-index="1">
-      <view class="title">{{words.A1}}</view>
-      <view class="instructions">{{words.A1_1}}</view>
-    </view>
-    <view class="tool_list"  bindtap="tool" data-index="2">
-      <view class="title">{{words.A2}}</view>
-      <view class="instructions">{{words.A2_1}}</view>
-    </view>
-    <view class="tool_list"  bindtap="tool" data-index="3">
+    <view class="tool_list" 
+      style="background:url(https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgA.png); background-size: 100%;"  bindtap="tool"
+      data-index="3">
+      <image class="index_icon" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgA-1.png" />
       <view class="title">{{words.A3}}</view>
       <view class="instructions">{{words.A3_1}}</view>
     </view>
-    <view class="tool_list"  bindtap="tool" data-index="4">
+    <view class="tool_list"  
+      style="background:url(https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgB.png); background-size: 100%;"
+      bindtap="tool"
+      data-index="4">
+      <image class="index_icon" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgB-1.png" />
       <view class="title">{{words.A4}}</view>
       <view class="instructions">{{words.A4_1}}</view>
     </view>
-    <view class="tool_list"  bindtap="tool" data-index="5">
-      <view class="title">{{words.A5}}</view>
-      <view class="instructions">{{words.A5_1}}</view>
+    <view class="tool_list"  
+      style="background:url(https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgC.png); background-size: 100%;"
+      bindtap="tool"
+      data-index="2">
+      <image class="index_icon" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgC-1.png" />
+      <view class="title">{{words.A2}}</view>
+      <view class="instructions">{{words.A2_1}}</view>
     </view>
-    <view class="tool_list"  bindtap="tool" data-index="6">
+    <view class="tool_list"  
+      style="background:url(https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgD.png); background-size: 100%;"
+      bindtap="tool" 
+      data-index="1">
+      <image class="index_icon" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgD-1.png" />
+      <view class="title">{{words.A1}}</view>
+      <view class="instructions">{{words.A1_1}}</view>
+    </view>
+    <view class="tool_list" 
+      style="background:url(https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgE.png); background-size: 100%;"
+      bindtap="tool"
+      data-index="5">
+      <image class="index_icon" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgE-1.png" />
+      <view class="title">{{words.A7}}</view>
+      <view class="instructions">{{words.A7_1}}</view>
+    </view>
+    <view class="tool_list" 
+      style="background:url(https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgF.png); background-size: 100%;"
+      bindtap="tool"
+      data-index="6">
+      <image class="index_icon" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgF-1.png" />
       <view class="title">{{words.A6}}</view>
       <view class="instructions">{{words.A6_1}}</view>
     </view>

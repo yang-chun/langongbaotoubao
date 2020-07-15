@@ -35,7 +35,11 @@ page {
   margin-bottom: 88rpx;
 }
 
+.button{
+    display: flex;
+}
 .login-btn {
+  width: 250rpx;
   border: none;
   height: 88rpx;
   line-height: 88rpx;
@@ -50,5 +54,25 @@ page {
 }
 
 .login-btn.button-hover {
+  box-shadow: inset 0 5rpx 30rpx rgba(0, 0, 0, 0.15);
+}
+
+
+.cancelLogin-btn {
+  width: 250rpx;
+    border: none;
+    height: 88rpx;
+    line-height: 88rpx;
+    background: #999;
+    color: #fff;
+    font-size: 11pt;
+    border-radius: 999rpx;
+}
+
+.cancelLogin-btn::after {
+  display: none;
+}
+
+.cancelLogin-btn.button-hover {
   box-shadow: inset 0 5rpx 30rpx rgba(0, 0, 0, 0.15);
 }

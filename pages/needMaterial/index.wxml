@@ -1,0 +1,92 @@
+<view class="prompt_box">
+    <view class="prompt_icon">!</view>
+    <view>以下材料在理赔过程中需要提供，请您在就过程中妥善保管</view>
+</view>
+
+<view class="card">
+    <view class="serial_box">1</view>
+    <image  class="image" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/claim-information-1.jpg" bindtap="previewImages" data-idx="1" mode="widthFix"></image>
+    <view class="cont_box">
+        <view class="type_box">
+            <view class="type">原件</view>
+            <view class="title">病历</view>
+        </view>
+        <view class="Introduction">病例原件，如有住院，提供出院记录</view>
+    </view>
+</view>
+
+
+<view class="card">
+    <view class="serial_box">2</view>
+    <image class="image" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/claim-information-2.jpg" bindtap="previewImages" data-idx="2"mode="widthFix"></image>
+    <view class="cont_box">
+        <view class="type_box">
+            <view class="type">原件</view>
+            <view class="title">发票</view>
+        </view>
+        <view class="Introduction">带有医院收费专用章</view>
+    </view>
+</view>
+
+
+<view class="card">
+    <view class="serial_box">3</view>
+    <image class="image" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/claim-information-3.jpg" bindtap="previewImages" data-idx="3"mode="widthFix"></image>
+    <view class="cont_box">
+        <view class="type_box">
+            <view class="type">原件</view>
+            <view class="title">诊断说明</view>
+        </view>
+        <view class="Introduction">医师签名</view>
+    </view>
+</view>
+
+<view class="card">
+    <view class="serial_box">4</view>
+    <image class="image" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/claim-information-4.jpg" bindtap="previewImages" data-idx="4"mode="widthFix"></image>
+    <view class="cont_box">
+        <view class="type_box">
+            <view class="type">复印</view>
+            <view class="title">身份证</view>
+        </view>
+        <view class="Introduction">需要一张A4上，复印身份证正反面，能够清晰看到证件文字</view>
+    </view>
+</view>
+
+<view class="card">
+    <view class="serial_box">5</view>
+    <image class="image" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/claim-information-5.jpg" bindtap="previewImages" data-idx="5"mode="widthFix"></image>
+    <view class="cont_box">
+        <view class="type_box">
+            <view class="type">原件</view>
+            <view class="title">索赔通知书</view>
+        </view>
+        <view class="Introduction">需加盖被保险人签章</view>
+    </view>
+</view>
+<view class="card">
+    <view class="serial_box">6</view>
+    <image class="image" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/claim-information-6.jpg" bindtap="previewImages" data-idx="6"mode="widthFix"></image>
+    <view class="cont_box">
+        <view class="type_box">
+            <view class="type">原件</view>
+            <view class="title">事故说明</view>
+        </view>
+        <view class="Introduction">需加盖被保险人签章</view>
+    </view>
+</view>
+<view class="card">
+    <view class="serial_box">7</view>
+    <image class="image" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/claim-information-7.jpg" bindtap="previewImages" data-idx="7"mode="widthFix"></image>
+    <view class="cont_box">
+        <view class="type_box">
+            <view class="type">复印</view>
+            <view class="title">劳务合同</view>
+        </view>
+        <view class="Introduction">需盖章</view>
+    </view>
+</view>
+<view class="warning_box margin34">
+⚠️：有误工，需提供医师证明，必须盖医院章（其他在医院所产生的单据）
+</view>
+

@@ -76,7 +76,7 @@ Page({
 
         App._get("policy/activeLists",{},function(res){
             res.data.forEach(function(item,index){
-                plan.push("方案"+item.type+'('+item.month+')')
+                plan.push(item.plan+'('+item.month+')')
             })
             _this.setData({
                 plan:plan,
@@ -132,7 +132,7 @@ Page({
             })
         }
         wx.navigateTo({
-            url:"/pages/add-insurance/add?date="+date+"&policy_id="+policy_id+"&type="+type+"&month="+month
+            url:"/pages/add-insurance/add?date="+date+"&policy_id="+policy_id+"&plan="+plan+"&month="+month
         })
 
     },

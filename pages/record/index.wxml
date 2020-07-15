@@ -1,14 +1,24 @@
 <!--pages/record/index.wxml-->
 <view class="list_box">
-	<view class="list table">
-	    <view class="tr topnav">
-	      <view class="th operation_type_box">操作类型</view>
-	      <view class="th type">方案</view>
-	      <view class="th number">人数 </view>
-	      <view class="th premium">{{words.C11}}</view>
-	      <view class="th effect_date">生效日期</view>
-	    </view>
-	    <view class="topnav2">
+	<view class="list" bindtap="details"  wx:for="{{list}}" wx:key="index" data-policy_change_id="{{item.policy_change_id}}">
+		<image src="/images/{{item.type=='减保'?'reduction-icon.png':'add-icon.png'}}"></image>
+		<view class="list_r" >
+			<view class="list_1 font_size30">
+				<view class="list_1_1">
+					<view class="font-weight_b">{{item.type == '加保'?words.A3:words.A4}}{{item.count}}人</view>
+					<image src="/images/{{item.source == 'MiniProgram'?'MiniProgram-icon.png':'computer.png'}}"></image>
+				</view>
+				<view class="color3">{{item.price_diff}}</view>
+			</view>
+			<view class="list_1 font_size24">
+				<view class="color3 ">方案: {{item.plan}} </view>
+				<view class="color3">操作人: {{item.input_user.name}}</view>
+			</view>
+			<view class="list_1 font_size24">
+				<view class="color3">生效日期：{{item.start_date}}</view>
+			</view>
+		</view>
+	    <!-- <view class="topnav2">
 		    <view class="tr" bindtap="details"  wx:for="{{list}}" wx:key="index" data-policy_change_id="{{item.policy_change_id}}">
 		      <view class="td operation_type_box">
 		      	<view class="icon_dian  {{item.type=='减保'?'color1':'color2'}}">●</view>
@@ -21,29 +31,19 @@
 		      <view class="td premium {{item.type=='减保'?'color1':'color2'}}">{{item.premium}}</view>  
 		      <view class="td effect_date">{{item.start_date}}</view>  
 		    </view>
-	    </view>
-<!-- 	    <view class="tr"  bindtap="details" data-index="1">
-	      <view class="td operation_type_box">
-	      	<view class="icon_dian color2">●</view>
-	      	<view>加保</view>
-	      </view>
-	      <view class="td type">A</view>
-	      <view class="td number">40000</view>
-	      <view class="td premium color1">122000.00</view>  
-	      <view class="td effect_date">1979-05-12</view>  
 	    </view> -->
-		<view style="color:#bbb;padding-bottom:40rpx;padding-top:40rpx;font-size:28rpx;text-align:center;">
-			<view wx:if="{{isLoading}}">
-				加载中...
-			</view>
-			<view wx:elif="{{list.length == 0}}">
-			  暂无内容
-			</view>
-			<view wx:else>
-			  <text wx:if="{{len == total}}">没有更多了</text>
-			  <text wx:elif="{{isLoading}}">加载中...</text>
-				<view style="height:90rpx" wx:else></view>
-			</view>
-		</view>
+	</view>
+</view>
+<view style="color:#bbb;font-size:28rpx;text-align:center;">
+	<view wx:if="{{isLoading}}">
+		加载中...
+	</view>
+	<view wx:elif="{{list.length == 0}}">
+		暂无内容
+	</view>
+	<view wx:else>
+		<text wx:if="{{len == total}}">没有更多了</text>
+		<text wx:elif="{{isLoading}}">加载中...</text>
+		<view style="height:90rpx" wx:else></view>
 	</view>
 </view>

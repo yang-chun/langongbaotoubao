@@ -6,19 +6,18 @@
 	</view>
 </view>
 
-<!-- <form bindsubmit="formsubmit">
+<form bindsubmit="formsubmit">
 	<view class="content_box">
-		<view class="title">您对此次加保过程感到</view>
+		<view class="title">{{parameter==1?'您对此次加保过程感到':'您对此次减保过程感到'}}</view>
 		<view class="expression_box">
 			<image src="/images/expression1_{{expression==1?'s':'n'}}.png" bindtap="expression" data-index="1" ></image>
-			<image src="/images/expression2_{{expression==2?'s':'n'}}.png" bindtap="expression" data-index="2" ></image>
-			<image src="/images/expression3_{{expression==3?'s':'n'}}.png" bindtap="expression" data-index="3" ></image>
+			<image src="/images/expression2_{{expression==3?'s':'n'}}.png" bindtap="expression" data-index="3" ></image>
+			<image src="/images/expression3_{{expression==5?'s':'n'}}.png" bindtap="expression" data-index="5" ></image>
 		</view>
 		<textarea class="margin34 textarea" name="advice"  placeholder="可以说说您的建议吗～" maxlength="200">
 		</textarea>
 	</view>
-	<button form-type="submit" class="bg3">提交</button>	
-</form> -->
-<view class="button">
-	<button bindtap="complete" class="bg3">完成</button>
-</view>
+	<view class="button">
+		<button form-type="submit" class="bg5">完成</button>	
+	</view>
+</form>

@@ -20,7 +20,7 @@ Page({
         work_company:'',
         getCompany:[],
         isfocus:false,
-        can_submit:true,
+        can_submit:false,
         list:[],
         form_list:{
             start_date:'',
@@ -30,19 +30,15 @@ Page({
         keyword:'',
         personnel_list:[], //搜索结果列表
         sum:0,
-        words: ''
+        words: '',
+        is_search:false,
+        isInput:false
     },
-
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let _this = this,
-        date = _this.data.date,
-        policy_id = _this.data.policy_id,
-        type = _this.data.type,
-        month = _this.data.month,
-        getCompany = _this.data.getCompany;
+        let _this = this;
         _this.getWords();
         _this.title();
         _this.setData({
@@ -101,14 +97,61 @@ Page({
         });
     },
     
+    /**
+     * 顶部弹框执行完后执行 
+     */
+    showInput:function(){
+        this.setData({
+            isInput:true
+        })
+    },
+
     // 顶部弹框
     showTop() {
-    this.toggle('top', true);
+        let _this = this,
+            policy_id = _this.data.policy_id,
+            list = _this.data.list;
+        this.toggle('top', true);
+        App._get('/employee/listsForOff',{
+            keywords:'',
+            policy_id:policy_id
+        },function(res){
+                let data = [],
+                personList = [];
+                if(list.length > 0){
+                    // 获取已选择列表身份证号码
+                    list.forEach(function(listItem,listIndex){
+                        listItem.persons.forEach(function(personsItem,personsIndex){
+                            personList.push(personsItem.idcard)
+                        })
+                    })
+                    // 判断是否存在
+                    res.data.forEach(function(dataItem,dataIndex){
+                        if(personList.indexOf(dataItem.idcard) >= 0){
+                            dataItem.status = true;
+                        }else{
+                            dataItem.status = false;
+                        }
+                        data.push(dataItem)
+                    })
+                }else{
+                    res.data.forEach(function(dataItem,dataIndex){
+                        dataItem.status = false;
+                        data.push(dataItem)
+                    })
+                }
+                _this.setData({
+                    personnel_list:data
+                })
+        })
     },
 
     // 隐藏顶部弹框
     hideTop() {
         this.toggle('top', false);
+        this.setData({
+            keyword:''
+        })
     },
 
 
@@ -116,95 +159,123 @@ Page({
     getPersonnelList:function(e){
         let _this = this,
         keyword = e.detail.value.keyword,
-        policy_id = _this.data.policy_id;
-        wx.showLoading({
-          title: '加载中',
+        policy_id = _this.data.policy_id,
+        list = _this.data.list;
+        // if (!keyword) {
+        //     wx.showToast({
+        //       title: '请输入搜索内容!',
+        //       icon: 'none',
+        //       duration: 1000
+        //     })
+        //     return;
+        // }
+        _this.setData({
+            is_search:true
         })
-        if (!keyword) {
-            wx.showToast({
-              title: '请输入搜索内容!',
-              icon: 'none',
-              duration: 1000
-            })
-            return;
-        }
         App._get('/employee/listsForOff',{
             keywords:keyword,
             policy_id:policy_id
         },function(res){
             if (res.data.length>0) {
+                let data = [],
+                personList = [];
+                if(list.length > 0){
+                    // 获取已选择列表身份证号码
+                    list.forEach(function(listItem,listIndex){
+                        listItem.persons.forEach(function(personsItem,personsIndex){
+                            personList.push(personsItem.idcard)
+                        })
+                    })
+                    // 判断是否存在
+                    res.data.forEach(function(dataItem,dataIndex){
+                        if(personList.indexOf(dataItem.idcard) >= 0){
+                            dataItem.status = true;
+                        }else{
+                            dataItem.status = false;
+                        }
+                        data.push(dataItem)
+                    })
+                }else{
+                    res.data.forEach(function(dataItem,dataIndex){
+                        dataItem.status = false;
+                        data.push(dataItem)
+                    })
+                }
                 _this.setData({
-                    personnel_list:res.data
+                    personnel_list:data
                 })
-                _this.showTop()
             }else{
                 wx.showToast({
                   title: '未搜索到相关人员',
                   icon: 'none',
-                  duration: 1000
+                  duration: 1500
                 })
             }
-            wx.hideLoading()
+            _this.setData({
+                is_search:false
+            })
         })
     },
 
     // 选择人员
     choosePersonnel:function(e){
         let _this = this,
-            // name = e.detail.value.name,
-            // idcard = e.detail.value.idcard,
-            // work_company = e.detail.value.work_company,
             index = e.currentTarget.dataset.index,
-            personnel_list = _this.data.personnel_list[index],
-            list = _this.data.list,
-            formList = _this.data.formList,
-            getCompany = _this.data.getCompany;
-        _this.setData({
-            remind: ""
-        })
-        list.forEach(function(item,index){
-            item.persons.forEach(function(perItem,idx){
-                // console.log(perItem.idcard)
-                if (perItem.idcard == personnel_list.idcard) {
-                   _this.setData({
-                        remind: "*当前人员已在“"+perItem.work_company+"”中！"
+            personnel = _this.data.personnel_list[index],
+            personnel_list = _this.data.personnel_list,
+            list = _this.data.list;
+            personnel_list[index].status = !personnel.status;
+            if(personnel.status){
+                _this.data.sum++;
+                list.forEach(function(item,index){
+                    if (item.work_company == personnel.work_company) {
+                        item.persons.unshift(personnel)
+                        _this.setData({
+                            is_there:false,
+                        })
+                    }
+                })
+                if (_this.data.is_there) {
+                    list.unshift({work_company:personnel.work_company,persons:[personnel]})
+                }else{
+                    _this.setData({
+                        is_there:true,
                     })
                 }
-
-            })
-            if (_this.data.remind) {
-                return;
-            }
-            if (item.work_company == personnel_list.work_company) {
-                item.persons.unshift(personnel_list)
-                _this.setData({
-                    is_there:false,
+            }else{
+                _this.data.sum--;
+                list.forEach(function(ListItem,listIndex){
+                        ListItem.persons.forEach(function(personsItem,personsIndex){
+                            if(personnel_list[index]['idcard'] == personsItem.idcard){
+                                list[listIndex]['persons'].splice(personsIndex, 1)
+                                if (list[listIndex]['persons'].length == 0) {
+                                    list.splice(listIndex, 1)
+                                }
+                            }
+                        })
                 })
             }
-        })
-
-        if (_this.data.remind) {
-            return;
-        }
-
-        if (_this.data.is_there) {
-            list.unshift({work_company:personnel_list.work_company,persons:[personnel_list]})
-        }else{
-            _this.setData({
-                is_there:true,
-            })
-        }
-
         _this.setData({
             list:list,
-            personnel_list:[],
             isfocus:false,
-            sum:_this.data.sum+1,
-            can_submit:true,
-            keyword:''
+            sum:_this.data.sum,
+            can_submit:_this.data.sum>0?true:false,
+            personnel_list:personnel_list
         })
-        _this.hideTop();
     },
+
+    /**
+     * 滚动到底部
+     */
+    // pageScrollToBottom: function() {
+    //     wx.createSelectorQuery().select('#j_page').boundingClientRect(function(rect) {
+    //       if (rect){
+    //         wx.pageScrollTo({
+    //            scrollTop: rect.height
+    //         })
+    //       }
+    //     }).exec()
+    // },
 
     // 在list删除人员
     delete:function(e){
@@ -220,7 +291,7 @@ Page({
           success(res) {
             if (res.confirm) {
                 list[index]['persons'].splice(idx, 1)
-         
+        
                 if (list[index]['persons'].length == 0) {
                     list.splice(index, 1)
                 }
@@ -280,7 +351,7 @@ Page({
 
                 list.forEach(function(item,index){
                     item.persons.forEach(function(formItem,formIndex){
-                        persons.push(formItem)
+                        persons.unshift(formItem)
                     })
                 })
                 persons = JSON.stringify(persons);

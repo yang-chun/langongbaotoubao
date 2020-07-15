@@ -45,6 +45,31 @@ Page({
     })
   },
 
+  unbundling:function(){
+
+    wx.showModal({
+      title: '提示',
+      content: '是否确认解绑？',
+      success (res) {
+        if (res.confirm) {
+          App._post_form('customer/unbind',{},function(res){
+            wx.showToast({
+              title: '解绑成功！',
+              icon: 'success',
+              duration: 1500,
+              success:function() {
+                wx.reLaunch({
+                  url: '/pages/index/index'
+                })
+              }
+            })
+          })
+        }
+      }
+    })
+
+  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

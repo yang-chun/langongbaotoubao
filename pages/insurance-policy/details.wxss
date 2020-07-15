@@ -17,7 +17,7 @@
 }
 
 .plan_info{
-	width: 69%;
+	/* width: 69%; */
 }
 
 .top_data_box{
