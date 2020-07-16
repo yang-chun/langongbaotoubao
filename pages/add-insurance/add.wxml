@@ -12,14 +12,14 @@
 		<form bindsubmit="addlist">
 			<view class="name_box">
 				<view class="iconfont icon-xiangji" catchtap='chooseImage'></view>
-				<input name="name" placeholder="{{words.C17}}" value="{{name}}人" />
+				<input name="name" placeholder="{{words.C17}}" value="{{name}}" />
 			</view>
 			<view class="name_box">
-				<input name="idcard" placeholder="{{words.C18}}" value="{{idcard}}5110231995101" type="idcard" maxlength="18" />
+				<input name="idcard" placeholder="{{words.C18}}" value="{{idcard}}" type="idcard" maxlength="18" />
 			</view>
 			<view catchtap="company_show">
 				<view class="name_box">
-					<input name="work_company" placeholder="被派遣单位全称" value="{{work_company}}公司" bindinput="company_input" />
+					<input name="work_company" placeholder="被派遣单位全称" value="{{work_company}}" bindinput="company_input" />
 				</view>
 				<scroll-view wx:if="{{isfocus}}" class="scroll" scroll-y="true" scroll-x="false">
 					<view class="my_company" wx:for="{{getCompany}}" wx:key="index" catchtap="choose_company" data-work_company="{{item}}">
