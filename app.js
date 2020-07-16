@@ -19,7 +19,7 @@ App({
     user_id: null,
     words:[]
   },
-  version:"1.0.7",
+  version:"1.0.8",
   // api地址
   api_root: '',
   siteInfo: require('siteinfo.js'),

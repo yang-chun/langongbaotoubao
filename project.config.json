@@ -16,15 +16,15 @@
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false,
-		"compileHotReLoad": false
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.3",
@@ -106,14 +106,14 @@
 					"id": 6,
 					"name": "加保",
 					"pathName": "pages/add-insurance/add",
-					"query": "date=2020-04-03&policy_id=1596&type=C&month=2020-03",
+					"query": "date= 2020-07-16&policy_id=4464&plan=C方案(2020-07)",
 					"scene": null
 				},
 				{
 					"id": 7,
 					"name": "减保",
 					"pathName": "pages/reduce-insurance/reduce",
-					"query": "date=2020-06-03&policy_id=1856&type=C&month=2020-03",
+					"query": "date=2020-07-18&policy_id=4464&type=C 方案&month=2020-03",
 					"scene": null
 				},
 				{

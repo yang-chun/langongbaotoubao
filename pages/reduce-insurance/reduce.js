@@ -34,6 +34,7 @@ Page({
         is_search:false,
         isInput:false
     },
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -47,15 +48,7 @@ Page({
             type:options.type,
             month:options.month
         })
-        wx.getStorage({
-            key:'data',
-            success (res) {
-                _this.setData({
-                    getCompany:res.data.work_company
-                })
-                // console.log('初始数据  '+res.data.work_company)
-            }
-        })
+        _this.getList();
     },
 
     /**
@@ -72,7 +65,9 @@ Page({
 
     },
 
-    // 获取title
+    /**
+     * 获取title
+     */
     title() {
         let _this = this,
             title = _this.data.words.A4;
@@ -81,7 +76,9 @@ Page({
         })
     },
 
-    // 获取菜单列表
+    /**
+     * 获取菜单列表
+     */
     getWords() {
         let _this = this;
         App.getWords(function (res) {
@@ -106,7 +103,9 @@ Page({
         })
     },
 
-    // 顶部弹框
+    /**
+     * 顶部弹框
+     */
     showTop() {
         let _this = this,
             policy_id = _this.data.policy_id,
@@ -146,7 +145,9 @@ Page({
         })
     },
 
-    // 隐藏顶部弹框
+    /**
+     * 隐藏顶部弹框
+     */
     hideTop() {
         this.toggle('top', false);
         this.setData({
@@ -155,20 +156,15 @@ Page({
     },
 
 
-    // 获取人员列表
+    /**
+     * 获取人员列表
+     */
     getPersonnelList:function(e){
         let _this = this,
         keyword = e.detail.value.keyword,
         policy_id = _this.data.policy_id,
         list = _this.data.list;
-        // if (!keyword) {
-        //     wx.showToast({
-        //       title: '请输入搜索内容!',
-        //       icon: 'none',
-        //       duration: 1000
-        //     })
-        //     return;
-        // }
+
         _this.setData({
             is_search:true
         })
@@ -217,7 +213,9 @@ Page({
         })
     },
 
-    // 选择人员
+    /**
+     * 选择人员
+     */
     choosePersonnel:function(e){
         let _this = this,
             index = e.currentTarget.dataset.index,
@@ -226,6 +224,7 @@ Page({
             list = _this.data.list;
             personnel_list[index].status = !personnel.status;
             if(personnel.status){
+                //选中
                 _this.data.sum++;
                 list.forEach(function(item,index){
                     if (item.work_company == personnel.work_company) {
@@ -242,7 +241,10 @@ Page({
                         is_there:true,
                     })
                 }
+                //设置缓存
+                _this.setList(list,_this.data.sum,_this.data.sum>0?true:false)
             }else{
+                //取消选中
                 _this.data.sum--;
                 list.forEach(function(ListItem,listIndex){
                         ListItem.persons.forEach(function(personsItem,personsIndex){
@@ -254,6 +256,7 @@ Page({
                             }
                         })
                 })
+                _this.setList(list,_this.data.sum,_this.data.sum>0?true:false)
             }
         _this.setData({
             list:list,
@@ -277,14 +280,15 @@ Page({
     //     }).exec()
     // },
 
-    // 在list删除人员
+    /**
+     * 在list删除人员
+     */
     delete:function(e){
         let _this = this,
         index = e.currentTarget.dataset.index,
         idx = e.currentTarget.dataset.idx,
         list = _this.data.list;
 
-        // return;
         wx.showModal({
           title: '提示',
           content: '确定删除吗！',
@@ -300,13 +304,17 @@ Page({
                     sum:_this.data.sum-1,
                     can_submit:_this.data.sum-1>0?true:false
                 })
+                _this.setList(list,_this.data.sum,_this.data.sum>0?true:false)
             } else if (res.cancel) {
                 return false;
             }
           }
         })
     },
-    // 显示派遣单位列表
+
+    /**
+     * 显示派遣单位列表
+     */
     company_show:function(){
         // console.log(1)
         let _this = this;
@@ -315,7 +323,9 @@ Page({
         })
     },
 
-    // 隐藏派遣单位列表
+    /**
+     * 隐藏派遣单位列表
+     */
     company_hide:function(){
         let _this = this;
         _this.setData({
@@ -323,22 +333,17 @@ Page({
         })
     },
 
-
-    // 提交数据
+    /**
+     * 提交数据
+     */
     form_list:function(){
         let _this = this,
         list = _this.data.list,
         persons = [],
-        form_list = _this.data.form_list,
         date = _this.data.date,
         can_submit = _this.data.can_submit,
         policy_id = _this.data.policy_id;
-
-
-        if (!can_submit) {
-            return false;
-        }
-
+        if (!can_submit)return false;
 
         wx.showModal({
           title: '提示',
@@ -368,7 +373,10 @@ Page({
                         can_submit:false,
                         sum:0
                     })
-                    wx.hideLoading()
+                    //清空list缓存
+                    _this.setList();
+                    
+                    wx.hideLoading();
                     wx.navigateTo({
                         url:'/pages/evaluation/index'
                     })
@@ -386,39 +394,34 @@ Page({
 
     },
 
-
     /**
-     * 生命周期函数--监听页面隐藏
+     * 设置list缓存
      */
-    onHide: function () {
-
+    setList(list=[],sum=0,can_submit=false){
+        wx.setStorage({
+            key:"addList",
+            data:{
+                list:list,
+                sum:sum, 
+                can_submit:can_submit,
+            }
+        })
     },
 
     /**
-     * 生命周期函数--监听页面卸载
+     * 获取缓存list 列表
      */
-    onUnload: function () {
-
+    getList(){
+        let _this = this;
+        wx.getStorage({
+            key: 'addList',
+            success(res){
+                _this.setData({
+                    list:res.data.list?res.data.list:[],
+                    sum:res.data.sum?res.data.sum:0,
+                    can_submit:res.data.can_submit?res.data.can_submit:false
+                })
+            }
+        })
     },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
 })

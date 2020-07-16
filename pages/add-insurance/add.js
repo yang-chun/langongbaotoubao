@@ -2,7 +2,6 @@
 const App = getApp();
 
 Page({
-
     /**
      * 页面的初始数据
      */
@@ -29,6 +28,7 @@ Page({
         },
         isInput:false,
         sum:0,
+        words: []
     },
 
 
@@ -36,43 +36,17 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let _this = this,
-        date = _this.data.date,
-        policy_id = _this.data.policy_id,
-        plan = _this.data.plan,
-        month = _this.data.month,
-        getCompany = _this.data.getCompany;
+        let _this = this;
         _this.getWords();
         _this.title();
+        _this.getAddList();
+        _this.getCompany();
         _this.setData({
             date:options.date,
             policy_id:options.policy_id,
             plan:options.plan,
             month:options.month
         })
-        wx.getStorage({
-            key:'data',
-            success (res) {
-                _this.setData({
-                    getCompany:res.data.work_company
-                })
-            }
-        })
-
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
     },
     
     /**
@@ -84,8 +58,9 @@ Page({
         })
     },
 
-
-    // 获取菜单列表
+    /**
+     * 获取菜单列表
+     */
     getWords() {
         let _this = this;
         App.getWords(function (res) {
@@ -95,7 +70,9 @@ Page({
         })
     },
     
-    // 获取title
+    /**
+     * 获取title
+     */
     title() {
         let _this = this,
         title = _this.data.words.A3;
@@ -110,17 +87,23 @@ Page({
         });
     },
     
-    // 顶部弹框
+    /**
+     * 顶部弹框
+     */
     showTop() {
     this.toggle('top', true);
     },
 
-    // 隐藏顶部弹框
+    /**
+     * 隐藏顶部弹框
+     */
     hideTop() {
         this.toggle('top', false);
     },
 
-    // 添加加保名
+    /**
+    * 添加加保名 
+    */ 
     addlist:function(e){
         let _this = this,
             name = e.detail.value.name,
@@ -209,49 +192,59 @@ Page({
                 work_company:getCompany
             }
         })
+        let sum = _this.data.sum;
         _this.setData({
             name:'',
             idcard:'',
             work_company:'',
             list:list,
-            sum:_this.data.sum+1, 
+            sum:sum+1, 
             can_submit:true,
             isfocus:false,
             getCompany:getCompany
         })
+
+        //设置缓存
+        _this.setAddlist(list,sum+1,true);
         _this.hideTop();
     },
 
-    // 删除人员
+    /**
+     * 删除人员
+     */
     delete:function(e){
         let _this = this,
         index = e.currentTarget.dataset.index,
         idx = e.currentTarget.dataset.idx,
         list = _this.data.list;
 
-        // return;
         wx.showModal({
           title: '提示',
           content: '确定删除吗！',
           success(res) {
+            let sum = _this.data.sum;
             if (res.confirm) {
                 list[index]['persons'].splice(idx, 1)
-         
                 if (list[index]['persons'].length == 0) {
                     list.splice(index, 1)
                 }
                 _this.setData({
                     list:list, 
-                    sum:_this.data.sum-1, 
-                    can_submit:_this.data.sum-1>0?true:false 
+                    sum:sum-1, 
+                    can_submit:sum-1>0?true:false 
                 })
+                //设置缓存
+                _this.setAddlist(list,sum-1,sum-1>0?true:false );
             } else if (res.cancel) {
                 return false;
             }
           }
         })
     },
-    // 显示派遣单位列表
+
+    /**
+     * 显示派遣单位列表
+     */
     company_show:function(){
         // console.log(1)
         let _this = this;
@@ -260,7 +253,9 @@ Page({
         })
     },
 
-    // 隐藏派遣单位列表
+    /**
+     * 隐藏派遣单位列表
+     */
     company_hide:function(){
         let _this = this;
         _this.setData({
@@ -268,12 +263,13 @@ Page({
         })
     },
 
-    // 选择派遣单位
+    /**
+     * 选择派遣单位
+     */
     choose_company:function(e){
-        let _this = this,
-        work_company = _this.data.work_company;
+        let _this = this;
         // return;
-        this.setData({
+        _this.setData({
             work_company:e.currentTarget.dataset.work_company,
             isfocus:false
         })
@@ -286,7 +282,9 @@ Page({
         })
     },
 
-    // 提交数据
+    /**
+     * 提交数据
+     */
     form_list:function(){
         let _this = this,
         list = _this.data.list,
@@ -325,6 +323,9 @@ Page({
                         can_submit:false,
                         sum:0
                     })
+                    // 清除缓存内容
+                    _this.setAddlist();
+
                     wx.hideLoading()
                     wx.navigateTo({
                         url:'/pages/evaluation/index?parameter=1'
@@ -344,7 +345,9 @@ Page({
 
     },
 
-    // 删除缓存中派遣单位
+    /**
+     * 删除缓存中派遣单位
+     */
     delete_company:function(e){
         let _this = this,
         index = e.currentTarget.dataset.index,
@@ -412,38 +415,52 @@ Page({
         }
         });
     },
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
 
+
+
+    /**
+     * 设置list缓存
+     */
+    setAddlist(list=[],sum=0,can_submit=false){
+        wx.setStorage({
+            key:"addList",
+            data:{
+                list:list,
+                sum:sum, 
+                can_submit:can_submit,
+            }
+        })
     },
 
     /**
-     * 生命周期函数--监听页面卸载
+     * 获取缓存list 列表
      */
-    onUnload: function () {
-
+    getAddList(){
+        let _this = this;
+        wx.getStorage({
+            key: 'addList',
+            success(res){
+                _this.setData({
+                    list:res.data.list?res.data.list:[],
+                    sum:res.data.sum?res.data.sum:0,
+                    can_submit:res.data.can_submit?res.data.can_submit:false
+                })
+            }
+        })
     },
 
     /**
-     * 页面相关事件处理函数--监听用户下拉动作
+     * 获取缓存中公司列表
      */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    getCompany(){
+        let _this = this;
+        wx.getStorage({
+            key:'data',
+            success (res) {
+                _this.setData({
+                    getCompany:res.data.work_company
+                })
+            }
+        })
     }
 })
