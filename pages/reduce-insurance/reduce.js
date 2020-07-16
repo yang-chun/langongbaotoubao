@@ -375,7 +375,7 @@ Page({
                     })
                     //清空list缓存
                     _this.setList();
-                    
+
                     wx.hideLoading();
                     wx.navigateTo({
                         url:'/pages/evaluation/index'
@@ -399,7 +399,7 @@ Page({
      */
     setList(list=[],sum=0,can_submit=false){
         wx.setStorage({
-            key:"addList",
+            key:"ReduceList",
             data:{
                 list:list,
                 sum:sum, 
@@ -414,7 +414,7 @@ Page({
     getList(){
         let _this = this;
         wx.getStorage({
-            key: 'addList',
+            key: 'ReduceList',
             success(res){
                 _this.setData({
                     list:res.data.list?res.data.list:[],
