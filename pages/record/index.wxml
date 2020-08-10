@@ -5,7 +5,7 @@
 		<view class="list_r" >
 			<view class="list_1 font_size30">
 				<view class="list_1_1">
-					<view class="font-weight_b">{{item.type == '加保'?words.A3:words.A4}}{{item.count}}人</view>
+					<view class="font-weight_b">{{item.type == '减保' ? words.A4 : item.type == '期初投保' ? '期初' : words.A3}}{{item.count}}人</view>
 					<image src="/images/{{item.source == 'MiniProgram'?'MiniProgram-icon.png':'computer.png'}}"></image>
 				</view>
 				<view class="color3">{{item.price_diff}}</view>

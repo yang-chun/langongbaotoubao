@@ -1,0 +1,41 @@
+/* pages/work-company/index.wxss */
+.addButton{
+    margin-top: 20rpx;
+    border: none;
+    background:#FFF;
+    padding: 12rpx;
+    border-radius:60rpx;
+    color:#38358F;
+}
+
+.addButton::after{
+  border: none;
+}
+
+.list_box .list{
+    background: #FFF;
+    padding-top: 34rpx;
+    padding-bottom: 34rpx;
+    margin-top: 20rpx;
+
+}
+
+.list_box .list_2{
+    margin-top: 18rpx;
+}
+
+.list_box .list_2 .type_box{
+    border-radius:4rpx;
+    font-size: 24rpx;
+    padding:8rpx 18rpx;
+}
+
+
+.list_box .list_2 .operation view{
+    margin-left: 32rpx;
+    border: 1rpx solid #979797;
+    border-radius:26rpx;
+    font-size: 24rpx;
+    padding:8rpx 18rpx;
+    color:#979797;
+}

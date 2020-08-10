@@ -1,0 +1,56 @@
+/* pages/work-company/add.wxss */
+.inputText{
+    background:#fff;
+    padding:34rpx 34rpx;
+    margin-top: 20rpx;
+}
+
+.videoButton{
+    border: 1rpx solid #CCCCCC;
+    width: 240rpx;
+    height: 240rpx;
+    color:#CCCCCC;
+    text-align: center;
+    margin-top: 34rpx;
+}
+
+.videoButton .icon-jia{
+    font-size: 100rpx;
+    margin-top: 40rpx;
+   
+
+}
+
+.image-preview{
+    width: 240rpx;
+    height: 240rpx;
+    position: relative;
+}
+
+.image-delete{
+    width: 40rpx;
+    height: 40rpx;
+    background:#969799;
+    color: #fff;
+    text-align: center;
+    line-height: 40rpx;
+    border-radius: 50%;
+    position: absolute;
+    right: -15rpx;
+    top: -15rpx;
+}
+
+.button{
+  width: 100%!important;
+  border-radius: 0rpx;
+  color: #fff;
+  font-size:32rpx;
+  font-weight: 500;
+  padding: 15rpx;
+  position: fixed;
+  bottom: 0;
+}
+
+.button:after{
+    border: none;
+}

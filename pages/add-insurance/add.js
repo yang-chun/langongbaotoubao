@@ -450,17 +450,23 @@ Page({
     },
 
     /**
-     * 获取缓存中公司列表
+     * 获取缓存中被派遣单位
      */
     getCompany(){
         let _this = this;
-        wx.getStorage({
-            key:'data',
-            success (res) {
-                _this.setData({
-                    getCompany:res.data.work_company
-                })
-            }
+        // wx.getStorage({
+        //     key:'data',
+        //     success (res) {
+        //         _this.setData({
+        //             getCompany:res.data.work_company
+        //         })
+        //     }
+        // })
+        App._get('work_company/lists',{},function(res){
+            _this.setData({
+                getCompany:res.data
+            })
         })
+
     }
 })

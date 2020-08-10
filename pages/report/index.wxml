@@ -1,7 +1,7 @@
 <view class="top_box">
     <view class="process_box" bindtap="claimsProcess">仔细阅读理赔流程></view>
-    <view class="title margin34">已理赔金额</view>
-    <view class="money">￥{{data.money_payed}}</view>
+    <view class="title margin34"></view>
+    <view class="money"></view>
     <view class="dispose_type_box">
         <view class="dispose_type">
             <view>全部</view>

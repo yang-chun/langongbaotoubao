@@ -93,6 +93,14 @@
       <view class="title">{{words.A6}}</view>
       <view class="instructions">{{words.A6_1}}</view>
     </view>
+    <view class="tool_list" 
+      style="background:url(https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgG.png); background-size: 100%;"
+      bindtap="tool"
+      data-index="7">
+      <image class="index_icon" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgG-1.png" />
+      <view class="title">被派遣单位</view>
+      <view class="instructions">查看添加新的派遣单位</view>
+    </view>
 <!--     <view class="tool_list"  bindtap="tool" data-index="7">
       <view class="title">在线报案</view>
       <view class="instructions">在线提交报案理赔申请</view>

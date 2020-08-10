@@ -1,0 +1,13 @@
+<!--pages/work-company/add.wxml-->
+<form  bindsubmit="formSubmit">
+    <input class="inputText padding_34" name="name" placeholder="请输入被派遣单位" />
+    <view class="image-preview margin34 videoButton" wx:for="{{formData.image_list}}" wx:for-index="imageIndex" wx:for-item="imagePath" wx:key="this">
+        <video style="width:240rpx;height:240rpx" mode="aspectFill" src="{{ imagePath }}"></video>
+            <view class="image-delete iconfont icon-shanchu" catchtap="deleteImage" data-index="{{index}}" data-image-index="{{imageIndex}}">×</view>
+    </view>
+    <view class="margin34 videoButton"  bindtap="chooseVideo" wx:if="{{ !formData.image_list || formData.image_list.length < 1 }}">
+        <view class="iconfont icon-jia"></view>
+        <view>视频上传</view>
+    </view>
+    <button formType="submit" size="default" class="button bg5">提交</button>
+</form>

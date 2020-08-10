@@ -99,6 +99,10 @@ page{
   color:#C3CDCA;
 }
 
+.color12{
+  color:#3DD2AF;
+}
+
 .weight500{
     font-weight: 500;
 }
@@ -113,6 +117,9 @@ page{
 
 .font_size30{
   font-size: 30rpx;
+}
+.font_size35{
+  font-size: 35rpx;
 }
 
 .font_size54{
@@ -152,6 +159,16 @@ border-radius:4px 4px 100px 100px;
   background: #F57929;
 }
 
+.bg7{
+  background:rgba(61, 210, 175, 0.3)
+}
+
+.bg8{
+  background:rgba(245, 121, 41, 0.3)
+}
 .dispaly_flex{
   display: flex;
+}
+.space-between{
+  justify-content: space-between;
 }

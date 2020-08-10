@@ -22,8 +22,8 @@
 					<input name="work_company" placeholder="被派遣单位全称" value="{{work_company}}" bindinput="company_input" />
 				</view>
 				<scroll-view wx:if="{{isfocus}}" class="scroll" scroll-y="true" scroll-x="false">
-					<view class="my_company" wx:for="{{getCompany}}" wx:key="index" catchtap="choose_company" data-work_company="{{item}}">
-						<view>{{item}}</view>
+					<view class="my_company" wx:for="{{getCompany}}" wx:key="index" catchtap="choose_company" data-work_company="{{item.name}}">
+						<view>{{item.name}}</view>
 						<view class="cha" catchtap="delete_company" data-index="{{index}}">×</view>
 					</view>
 				</scroll-view>

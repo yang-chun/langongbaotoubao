@@ -10,7 +10,7 @@
 	<navigator url="/pages/user/company-info" class="list padding_34" hover-class="none">
 		<view class="company_info">公司信息</view>
 		<view class="company_name">{{my.company_name}}</view>
-		<view class="unbundling" catchtap="unbundling">解绑</view>
+		<view class="unbundling" catchtap="unbundling" wx:if="{{my.company_name}}">解绑</view>
 		<image class="youjiantou" src="/images/icon-youjiantou.png"></image>
 	</navigator>
 </view>

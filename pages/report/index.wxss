@@ -1,6 +1,6 @@
 /* pages/report/index.wxss */
 .top_box{
-    height:292rpx;
+    height:202rpx;
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
@@ -26,7 +26,7 @@
 }
 
 .top_box .title{
-    padding-top: 34rpx;
+    padding-top: 44rpx;
     color: #fff;
     font-size: 24rpx;
 }

@@ -25,7 +25,9 @@
     "pages/report/claimsProcess",
     "pages/needMaterial/index",
     "pages/topUp/index",
-    "pages/wep/index"
+    "pages/wep/index",
+    "pages/work-company/index",
+    "pages/work-company/add"
 ],
 "window": {
   "backgroundTextStyle": "light",

@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -23,7 +23,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -247,6 +247,20 @@
 					"name": "充值",
 					"pathName": "pages/topUp/index",
 					"query": "date=2020-06-03&policy_id=1856&type=C&month=2020-03",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "被派遣单位",
+					"pathName": "pages/work-company/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新增被派遣单位",
+					"pathName": "pages/work-company/add",
+					"query": "",
 					"scene": null
 				}
 			]

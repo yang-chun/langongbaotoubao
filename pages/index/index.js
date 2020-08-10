@@ -96,10 +96,10 @@ Page({
           url = "staff-query";
           break;
         case '7':
-          console.log(7)
+          url = "work-company";
           break;
         case '8':
-          console.log(8)
+
           break;
       }
       wx.navigateTo({
@@ -113,7 +113,6 @@ Page({
     let _this = this,
     list = _this.data.list;
     App._get('customer/panel',{},function(res){
-      console.log(res)
         wx.hideNavigationBarLoading() //完成停止加载
         wx.stopPullDownRefresh() //停止下拉刷新
         _this.setData({
