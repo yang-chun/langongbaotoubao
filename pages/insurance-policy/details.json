@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-tabs": "/vant/tabs/index",
+    "van-tab":"/vant/tab/index"
+},
   "navigationBarTitleText":""
 }

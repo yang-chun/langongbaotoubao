@@ -60,7 +60,7 @@ page{
 }
 
 .color2{
-  color: #12C286;
+  color: #08C684;
 }
 
 .color3{
@@ -110,7 +110,9 @@ page{
 .weight400{
     font-weight: 400;
 }
-
+.weight600{
+  font-weight: 600;
+}
 .font-weight_b{
   font-weight: bold;
 }
@@ -129,11 +131,15 @@ page{
 .font_size24{
   font-size: 24rpx;
 }
-
+.font_size26{
+  font-size: 26rpx;
+}
 .font_size28{
   font-size: 28rpx;
 }
-
+.font_size42{
+  font-size: 42rpx;
+}
 .bg1{
   background:#D6D6E5;
 }

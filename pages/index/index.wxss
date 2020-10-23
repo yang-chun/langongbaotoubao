@@ -1,15 +1,16 @@
 /**index.wxss**/
 .top_box {
   width: 750rpx;
-  height: 326rpx;
-  background:url(https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/home-bg.png);
+  height: 272rpx;
+  background:#08C684;
   background-size:100%;
   display: flex;
+  margin-bottom: 30rpx;
 }
 
 .company {
   color: #FFFFFF;
-  background:rgba(151,151,151,0.15);
+  background:rgba(255, 255, 255, 0.15);
   border-radius:24rpx;
   text-align: center;
   line-height: 48rpx;
@@ -33,7 +34,7 @@
 
 .top_data{
   display: flex;
-  color: #ACB0C3;
+  color:rgba(255, 255, 255, 0.59);
   font-size: 30rpx;
   width: 100%;
 }

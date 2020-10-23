@@ -36,7 +36,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    // console.log(wx.getStorageSync("words"))
   },
 
   /**
@@ -174,4 +173,11 @@ Page({
     _this.customer_panel();
     _this.getNotice();
   },
+
+  /**
+   * 客服
+   */
+  handleContact:function(e){
+    
+  }
 })

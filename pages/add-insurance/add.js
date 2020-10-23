@@ -131,7 +131,7 @@ Page({
             return false; 
         }else if (!work_company) {
             _this.setData({
-                remind: "*请输入被派遣单位全称！"
+                remind: "*请输入被派遣单位！"
             })
             return;
         }else{
@@ -170,19 +170,6 @@ Page({
             _this.setData({
                 is_there:true,
             })
-        }
-
-        // 添加派遣单位列表
-        if (getCompany.length > 0) {
-            if (getCompany.indexOf(work_company) >= 0) {
-                getCompany.splice(getCompany.indexOf(work_company),1)
-                getCompany.unshift(work_company)
-            }else{
-                getCompany.unshift(work_company)
-            }
-            getCompany.splice(5)
-        }else{
-            getCompany.unshift(work_company)
         }
         
         // 存入缓存
@@ -246,10 +233,9 @@ Page({
      * 显示派遣单位列表
      */
     company_show:function(){
-        // console.log(1)
         let _this = this;
         _this.setData({
-            isfocus:true
+            isfocus:!_this.data.isfocus
         })
     },
 
@@ -267,11 +253,24 @@ Page({
      * 选择派遣单位
      */
     choose_company:function(e){
-        let _this = this;
-        // return;
+        let _this = this,
+            getCompany = _this.data.getCompany,
+            work_company = e.currentTarget.dataset.work_company,
+            company = '';
+
+        for (var i = 0; i < getCompany.length; i++) {
+            if (getCompany[i]['name'] === work_company) {
+                company = getCompany[i];
+                getCompany.splice(i, 1);
+                break;
+            }
+        }
+        getCompany.unshift(company);
+
         _this.setData({
-            work_company:e.currentTarget.dataset.work_company,
-            isfocus:false
+            work_company:work_company,
+            isfocus:false,
+            getCompany:getCompany
         })
     },
 
@@ -450,23 +449,16 @@ Page({
     },
 
     /**
-     * 获取缓存中被派遣单位
+     * 获取被派遣单位
      */
     getCompany(){
         let _this = this;
-        // wx.getStorage({
-        //     key:'data',
-        //     success (res) {
-        //         _this.setData({
-        //             getCompany:res.data.work_company
-        //         })
-        //     }
-        // })
-        App._get('work_company/lists',{},function(res){
+        App._get('work_company/lists',{
+            status:10
+        },function(res){
             _this.setData({
                 getCompany:res.data
             })
         })
-
     }
 })

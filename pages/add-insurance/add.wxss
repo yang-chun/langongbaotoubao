@@ -39,6 +39,7 @@
 
 .scroll{
 	background: #F6F8F8;
+	max-height: 500rpx;
 	/* padding: 24rpx 0; */
 }
 
@@ -106,6 +107,7 @@
 	display: flex;
 	margin-top: 12rpx;
 	color: rgba(255,255,255,.6);
+	font-size: 28rpx;
 }
 
 .add_box{

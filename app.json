@@ -27,7 +27,8 @@
     "pages/topUp/index",
     "pages/wep/index",
     "pages/work-company/index",
-    "pages/work-company/add"
+    "pages/work-company/add",
+    "pages/references/index"
 ],
 "window": {
   "backgroundTextStyle": "light",

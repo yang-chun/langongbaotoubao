@@ -1,4 +1,13 @@
 <!--pages/insurance-policy/details.wxml-->
+<!-- <van-tabs bind:disabled="onClickDisabled" color="#08C684">
+  <van-tab title="基本信息">
+		<view class="">
+			<view class="">保障周期</view>
+			<view class="">2020-10-09 15:00:24 至 2020-11-01</view>
+		</view>
+	</van-tab>
+  <van-tab title="保障内容" >保障内容</van-tab>
+</van-tabs> -->
 	<view class="top_box padding_34" bindscrolltolower="onPageScroll">
 		<view class="plan_box">
 			<view class="plan_type">方案类型：{{details.plan}}</view>
@@ -17,6 +26,7 @@
 		<view class="cycle">{{words.C5}}：{{details.start_date}}  至  {{details.end_date}}</view>
 	</view>
 	<view class="top_sum">总费用  {{details.premium}}</view>
+
 	<view class="list_box">
 		<view class="title  padding_34">操作记录</view>
 		<view class="list table  {{scrollTop>260?'topnav2':''}}">

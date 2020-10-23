@@ -24,18 +24,6 @@
     </view>
   </view>
 </view>
-
-<view wx:if="{{list.user_id}}" class="contact_box">
-  <view class="contact_list" wx:for="{{list.service_man}}" wx:key="index">
-    <image class="portrait" src="{{item.avatar}}"></image>
-    <view class="list_info">
-      <view class="name">{{item.name}}</view>
-      <view class="info">{{item.describe}}</view>
-    </view>
-    <image bindtap="callem" data-mobile="{{item.mobile}}" class="phone" src="/images/phone.png"></image>
-  </view>
-</view>
-
 <view class="cont_box {{list.user_id?'':'marginN90'}}">
   <!-- <view class="nav padding_34">
     <view class="title_box"  bindtap="nav" data-nav='1'>
@@ -46,6 +34,14 @@
 
   <!-- 保险工具 -->
   <view wx:if="{{nav == 1}}" class="tool_box padding_34">
+    <view class="tool_list" 
+      style="background:url(https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgG.png); background-size: 100%;"
+      bindtap="tool"
+      data-index="7">
+      <image class="index_icon" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgG-1.png" />
+      <view class="title">被派遣单位</view>
+      <view class="instructions">查看添加新的派遣单位</view>
+    </view>
     <view class="tool_list" 
       style="background:url(https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgA.png); background-size: 100%;"  bindtap="tool"
       data-index="3">
@@ -92,14 +88,6 @@
       <image class="index_icon" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgF-1.png" />
       <view class="title">{{words.A6}}</view>
       <view class="instructions">{{words.A6_1}}</view>
-    </view>
-    <view class="tool_list" 
-      style="background:url(https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgG.png); background-size: 100%;"
-      bindtap="tool"
-      data-index="7">
-      <image class="index_icon" src="https://laowuquan.oss-cn-shanghai.aliyuncs.com/yunxiaobao/index_bgG-1.png" />
-      <view class="title">被派遣单位</view>
-      <view class="instructions">查看添加新的派遣单位</view>
     </view>
 <!--     <view class="tool_list"  bindtap="tool" data-index="7">
       <view class="title">在线报案</view>
